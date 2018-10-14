@@ -88,6 +88,18 @@
     <Compile Include="Class1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="controlpanel.Designer.vb">
+      <DependentUpon>controlpanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="controlpanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmaddadminvb.Designer.vb">
+      <DependentUpon>frmaddadminvb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmaddadminvb.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmclearloan.Designer.vb">
       <DependentUpon>frmclearloan.vb</DependentUpon>
     </Compile>
@@ -98,6 +110,12 @@
       <DependentUpon>frmschedule.vb</DependentUpon>
     </Compile>
     <Compile Include="frmschedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmscheduling.Designer.vb">
+      <DependentUpon>frmscheduling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmscheduling.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmviewloans.Designer.vb">
@@ -166,11 +184,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="controlpanel.resx">
+      <DependentUpon>controlpanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmaddadminvb.resx">
+      <DependentUpon>frmaddadminvb.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmclearloan.resx">
       <DependentUpon>frmclearloan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmschedule.resx">
       <DependentUpon>frmschedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmscheduling.resx">
+      <DependentUpon>frmscheduling.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmviewloans.resx">
       <DependentUpon>frmviewloans.vb</DependentUpon>
@@ -277,6 +304,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="folder.ico" />
+    <None Include="Resources\logo-login1.png" />
+    <None Include="Resources\no_user.png" />
     <None Include="Resources\spaced2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -252,6 +252,7 @@ Public Class Form1
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

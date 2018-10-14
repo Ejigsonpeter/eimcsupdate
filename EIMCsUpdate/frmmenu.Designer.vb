@@ -23,6 +23,7 @@ Partial Class frmmenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ITalk_ThemeContainer1 = New EIMCsUpdate.iTalk.iTalk_ThemeContainer()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ITalk_ControlBox1 = New EIMCsUpdate.iTalk.iTalk_ControlBox()
@@ -37,6 +38,7 @@ Partial Class frmmenu
         Me.BunifuTileButton1 = New Bunifu.Framework.UI.BunifuTileButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ITalk_ThemeContainer1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -44,6 +46,7 @@ Partial Class frmmenu
         'ITalk_ThemeContainer1
         '
         Me.ITalk_ThemeContainer1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.ITalk_ThemeContainer1.Controls.Add(Me.PictureBox2)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.Label2)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.Label1)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.ITalk_ControlBox1)
@@ -61,6 +64,16 @@ Partial Class frmmenu
         Me.ITalk_ThemeContainer1.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation
         Me.ITalk_ThemeContainer1.TabIndex = 0
         Me.ITalk_ThemeContainer1.Text = "Main Menu"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.EIMCsUpdate.My.Resources.Resources.close_red
+        Me.PictureBox2.Location = New System.Drawing.Point(1191, 24)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(74, 50)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 10
+        Me.PictureBox2.TabStop = False
         '
         'Label2
         '
@@ -120,11 +133,11 @@ Partial Class frmmenu
         Me.BunifuTileButton5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BunifuTileButton5.Font = New System.Drawing.Font("Century Gothic", 15.75!)
         Me.BunifuTileButton5.ForeColor = System.Drawing.Color.White
-        Me.BunifuTileButton5.Image = Global.EIMCsUpdate.My.Resources.Resources.close_red
+        Me.BunifuTileButton5.Image = Global.EIMCsUpdate.My.Resources.Resources.logo_login1
         Me.BunifuTileButton5.ImagePosition = 20
         Me.BunifuTileButton5.ImageZoom = 50
         Me.BunifuTileButton5.LabelPosition = 41
-        Me.BunifuTileButton5.LabelText = "Exit"
+        Me.BunifuTileButton5.LabelText = "Reset Password"
         Me.BunifuTileButton5.Location = New System.Drawing.Point(754, 208)
         Me.BunifuTileButton5.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton5.Name = "BunifuTileButton5"
@@ -200,7 +213,7 @@ Partial Class frmmenu
         Me.BunifuTileButton7.ImagePosition = 20
         Me.BunifuTileButton7.ImageZoom = 50
         Me.BunifuTileButton7.LabelPosition = 41
-        Me.BunifuTileButton7.LabelText = "Update Loan"
+        Me.BunifuTileButton7.LabelText = "Correct Transactions"
         Me.BunifuTileButton7.Location = New System.Drawing.Point(751, 17)
         Me.BunifuTileButton7.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton7.Name = "BunifuTileButton7"
@@ -287,6 +300,7 @@ Partial Class frmmenu
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.ITalk_ThemeContainer1.ResumeLayout(False)
         Me.ITalk_ThemeContainer1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -306,4 +320,5 @@ Partial Class frmmenu
     Friend WithEvents ITalk_ControlBox1 As EIMCsUpdate.iTalk.iTalk_ControlBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class

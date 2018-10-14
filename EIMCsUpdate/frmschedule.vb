@@ -13,7 +13,7 @@ Public Class frmschedule
     Dim cmd As MySqlCommand
     Dim sql As String
 
-    Dim x, y, z, p As String
+    Dim x, y, z, p, n, g As String
 
 
 
@@ -222,10 +222,142 @@ Public Class frmschedule
 
     End Sub
 
+    Sub loantype3()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "Short Term Cash Loan STCL"
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x3.DataSource = view1
+            x3.Refresh()
+
+
+            For Line As Integer = 0 To x3.RowCount - 1
+                p = p + x3.Rows(Line).Cells(4).Value * x3.Rows(Line).Cells(5).Value
+            Next
+
+            x3.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
+    Sub loantype4()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "4 months Short Term Material Sales STMS "
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x4.DataSource = view1
+            x4.Refresh()
+
+
+            For Line As Integer = 0 To x4.RowCount - 1
+                z = z + x4.Rows(Line).Cells(4).Value * x4.Rows(Line).Cells(5).Value
+            Next
+
+            x4.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
+    Sub loantype5()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "12 months Short Term Material Sales STMS "
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x5.DataSource = view1
+            x5.Refresh()
+
+
+            For Line As Integer = 0 To x5.RowCount - 1
+                n = n + x5.Rows(Line).Cells(4).Value * x5.Rows(Line).Cells(5).Value
+            Next
+
+            x5.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
+    Sub loantype6()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "Emergency Loan"
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x6.DataSource = view1
+            x6.Refresh()
+
+
+            For Line As Integer = 0 To x6.RowCount - 1
+                g = g + x6.Rows(Line).Cells(4).Value * x6.Rows(Line).Cells(5).Value
+            Next
+
+            x6.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
     Sub plot()
 
         Chart2.Series("Monitor").Points.AddXY("LTCL", x)
         Chart2.Series("Monitor").Points.AddXY("LTMS", y)
+        Chart2.Series("Monitor").Points.AddXY("STCL", p)
+        Chart2.Series("Monitor").Points.AddXY("FOOD", z)
+        Chart2.Series("Monitor").Points.AddXY("N-FOOD", n)
+        Chart2.Series("Monitor").Points.AddXY("EMERGENCY.L", g)
     End Sub
 
 
@@ -236,8 +368,94 @@ Public Class frmschedule
         totalmembers()
         loantype1()
         loantype2()
+        loantype3()
+        loantype4()
+        loantype5()
+        loantype6()
         plot()
 
+
+    End Sub
+
+    
+    Sub deduct()
+        Try
+            Dim a, b, c, e, f As Long
+
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "unpaid"
+
+            da = New MySqlDataAdapter("Select  * from loan where status = '" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            g1.DataSource = view1
+            g1.Refresh()
+
+
+            For Line As Integer = 0 To g1.RowCount - 1
+                f = g1.Rows(Line).Cells(4).Value * g1.Rows(Line).Cells(5).Value
+                a = g1.Rows(Line).Cells(4).Value - 1
+                b = g1.Rows(Line).Cells(5).Value
+                c = b + g1.Rows(Line).Cells(10).Value
+                e = g1.Rows(Line).Cells(0).Value
+
+                connect.Close()
+                connect.Open()
+                Dim status As String
+                Dim dates As String
+                Dim sql As String
+                dates = Now
+                If c >= f Then
+                    status = "paid"
+                Else
+                    status = "unpaid"
+                End If
+
+
+                sql = "UPDATE loan set amountpaid = '" & c & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & a & "' where sno = " & e
+
+                Dim cmdx As New MySqlCommand(sql, connect)
+
+
+                cmdx.ExecuteNonQuery()
+
+                connect.Close()
+
+            Next
+
+
+            g1.Refresh()
+
+            connect.Close()
+            MsgBox("Trasaction Successfull ", vbInformation)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+    End Sub
+
+    Private Sub ITalk_Button_21_Click(sender As System.Object, e As System.EventArgs) Handles gen.Click
+        deduct()
+    End Sub
+
+    Private Sub ITalk_Button_23_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_23.Click
+        Me.Hide()
+        frmmenu.Show()
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub ITalk_Button_22_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_22.Click
+        Me.Hide()
+        frmscheduling.Show()
 
     End Sub
 End Class

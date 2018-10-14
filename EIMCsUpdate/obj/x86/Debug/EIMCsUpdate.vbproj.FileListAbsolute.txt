@@ -16,3 +16,6 @@ C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUp
 C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.frmclearloan.resources
 C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.frmviewloans.resources
 C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.frmschedule.resources
+C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.frmscheduling.resources
+C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.controlpanel.resources
+C:\Users\Access_Denied\Documents\Visual Studio 2010\Projects\EIMCsUpdate\EIMCsUpdate\obj\x86\Debug\EIMCsUpdate.frmaddadminvb.resources

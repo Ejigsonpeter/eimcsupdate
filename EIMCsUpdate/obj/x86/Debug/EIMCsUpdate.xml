@@ -59,6 +59,14 @@ EIMCsUpdate
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:EIMCsUpdate.My.Resources.Resources.logo_login1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:EIMCsUpdate.My.Resources.Resources.no_user">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:EIMCsUpdate.My.Resources.Resources.reg_1">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
