@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC285FC3-ADD4-4983-B8EE-71F6C3C4C196}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>EIMCsUpdate.My.MyApplication</StartupObject>
+    <RootNamespace>EIMCsUpdate</RootNamespace>
+    <AssemblyName>EIMCsUpdate</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EIMCsUpdate.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EIMCsUpdate.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>folder.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmclearloan.Designer.vb">
+      <DependentUpon>frmclearloan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmclearloan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmviewloans.Designer.vb">
+      <DependentUpon>frmviewloans.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmviewloans.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="italk.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Loan.Designer.vb">
+      <DependentUpon>Loan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Loan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="members.Designer.vb">
+      <DependentUpon>members.vb</DependentUpon>
+    </Compile>
+    <Compile Include="members.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmenu.Designer.vb">
+      <DependentUpon>frmmenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmmenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mono.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Signin.Designer.vb">
+      <DependentUpon>Signin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Signin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewmembers.Designer.vb">
+      <DependentUpon>viewmembers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="viewmembers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmclearloan.resx">
+      <DependentUpon>frmclearloan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmviewloans.resx">
+      <DependentUpon>frmviewloans.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loan.resx">
+      <DependentUpon>Loan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="members.resx">
+      <DependentUpon>members.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmenu.resx">
+      <DependentUpon>frmmenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signin.resx">
+      <DependentUpon>Signin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewmembers.resx">
+      <DependentUpon>viewmembers.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_205396.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buy-with-cash-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-increase-sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons8_flat_planner.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login pagef.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spaced.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reg 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spaced1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reg 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reg 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reg 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xx.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="folder.ico" />
+    <None Include="Resources\spaced2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
