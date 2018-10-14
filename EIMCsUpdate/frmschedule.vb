@@ -13,6 +13,8 @@ Public Class frmschedule
     Dim cmd As MySqlCommand
     Dim sql As String
 
+    Dim x, y, z, p As String
+
 
 
     Sub loading()
@@ -159,7 +161,72 @@ Public Class frmschedule
 
 
 
+    Sub loantype1()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "Long Term Cash Loan LTCL"
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x1.DataSource = view1
+            x1.Refresh()
 
+
+            For Line As Integer = 0 To x1.RowCount - 1
+                x = x + x1.Rows(Line).Cells(4).Value * x1.Rows(Line).Cells(5).Value
+            Next
+
+            x1.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+    End Sub
+    Sub loantype2()
+        Try
+            Dim ds As DataSet = New DataSet
+            Dim da As MySqlDataAdapter
+            Dim tables As DataTableCollection = ds.Tables
+            Dim source1 As New BindingSource()
+            Dim m As String
+            m = "Long Term Material Sales LMTS"
+            da = New MySqlDataAdapter("Select  * from loan where loantype ='" & m & "'", connect)
+            da.Fill(ds, "Items")
+            Dim view1 As New DataView(tables(0))
+            source1.DataSource = view1
+            x2.DataSource = view1
+            x2.Refresh()
+
+
+            For Line As Integer = 0 To x2.RowCount - 1
+                y = y + x2.Rows(Line).Cells(4).Value * x2.Rows(Line).Cells(5).Value
+            Next
+
+            x2.Refresh()
+
+            connect.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
+    Sub plot()
+
+        Chart2.Series("Monitor").Points.AddXY("LTCL", x)
+        Chart2.Series("Monitor").Points.AddXY("LTMS", y)
+    End Sub
 
 
     Private Sub btnquery_Click(sender As System.Object, e As System.EventArgs) Handles btnquery.Click
@@ -167,6 +234,10 @@ Public Class frmschedule
         totalsaving()
         totalshares()
         totalmembers()
+        loantype1()
+        loantype2()
+        plot()
+
 
     End Sub
 End Class

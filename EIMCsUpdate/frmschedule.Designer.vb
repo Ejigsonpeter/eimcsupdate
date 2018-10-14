@@ -41,6 +41,10 @@ Partial Class frmschedule
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtsavings = New Bunifu.Framework.UI.BunifuCustomLabel()
@@ -60,11 +64,25 @@ Partial Class frmschedule
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.dg2 = New System.Windows.Forms.DataGridView()
         Me.dg1 = New System.Windows.Forms.DataGridView()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.x1 = New System.Windows.Forms.DataGridView()
+        Me.x2 = New System.Windows.Forms.DataGridView()
+        Me.x4 = New System.Windows.Forms.DataGridView()
+        Me.x3 = New System.Windows.Forms.DataGridView()
+        Me.x6 = New System.Windows.Forms.DataGridView()
+        Me.x5 = New System.Windows.Forms.DataGridView()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.x5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -244,7 +262,7 @@ Partial Class frmschedule
         Me.dgw.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgw.EnableHeadersVisualStyles = False
         Me.dgw.GridColor = System.Drawing.Color.Black
-        Me.dgw.Location = New System.Drawing.Point(29, 343)
+        Me.dgw.Location = New System.Drawing.Point(85, 340)
         Me.dgw.MultiSelect = False
         Me.dgw.Name = "dgw"
         Me.dgw.ReadOnly = True
@@ -268,7 +286,7 @@ Partial Class frmschedule
         Me.dgw.RowTemplate.Height = 18
         Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(799, 249)
+        Me.dgw.Size = New System.Drawing.Size(646, 249)
         Me.dgw.TabIndex = 197
         '
         'ITalk_Button_21
@@ -438,11 +456,87 @@ Partial Class frmschedule
         Me.dg1.TabIndex = 203
         Me.dg1.Visible = False
         '
+        'Chart2
+        '
+        Me.Chart2.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(426, 85)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series2.Legend = "Legend1"
+        Series2.Name = "Monitor"
+        Me.Chart2.Series.Add(Series2)
+        Me.Chart2.Size = New System.Drawing.Size(305, 227)
+        Me.Chart2.TabIndex = 204
+        Me.Chart2.Text = "Chart2"
+        Title2.Name = "Loan Graph (Profit Vs Liability)"
+        Me.Chart2.Titles.Add(Title2)
+        '
+        'x1
+        '
+        Me.x1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x1.Location = New System.Drawing.Point(737, 125)
+        Me.x1.Name = "x1"
+        Me.x1.Size = New System.Drawing.Size(59, 46)
+        Me.x1.TabIndex = 205
+        '
+        'x2
+        '
+        Me.x2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x2.Location = New System.Drawing.Point(737, 194)
+        Me.x2.Name = "x2"
+        Me.x2.Size = New System.Drawing.Size(59, 46)
+        Me.x2.TabIndex = 206
+        '
+        'x4
+        '
+        Me.x4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x4.Location = New System.Drawing.Point(836, 194)
+        Me.x4.Name = "x4"
+        Me.x4.Size = New System.Drawing.Size(59, 46)
+        Me.x4.TabIndex = 208
+        '
+        'x3
+        '
+        Me.x3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x3.Location = New System.Drawing.Point(836, 125)
+        Me.x3.Name = "x3"
+        Me.x3.Size = New System.Drawing.Size(59, 46)
+        Me.x3.TabIndex = 207
+        '
+        'x6
+        '
+        Me.x6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x6.Location = New System.Drawing.Point(940, 194)
+        Me.x6.Name = "x6"
+        Me.x6.Size = New System.Drawing.Size(59, 46)
+        Me.x6.TabIndex = 210
+        '
+        'x5
+        '
+        Me.x5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.x5.Location = New System.Drawing.Point(940, 125)
+        Me.x5.Name = "x5"
+        Me.x5.Size = New System.Drawing.Size(59, 46)
+        Me.x5.TabIndex = 209
+        '
         'frmschedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 645)
+        Me.Controls.Add(Me.x6)
+        Me.Controls.Add(Me.x5)
+        Me.Controls.Add(Me.x4)
+        Me.Controls.Add(Me.x3)
+        Me.Controls.Add(Me.x2)
+        Me.Controls.Add(Me.x1)
+        Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.ITalk_Button_22)
         Me.Controls.Add(Me.ITalk_Button_21)
@@ -470,6 +564,13 @@ Partial Class frmschedule
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.x5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -493,4 +594,11 @@ Partial Class frmschedule
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents dg2 As System.Windows.Forms.DataGridView
     Friend WithEvents dg1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents x1 As System.Windows.Forms.DataGridView
+    Friend WithEvents x2 As System.Windows.Forms.DataGridView
+    Friend WithEvents x4 As System.Windows.Forms.DataGridView
+    Friend WithEvents x3 As System.Windows.Forms.DataGridView
+    Friend WithEvents x6 As System.Windows.Forms.DataGridView
+    Friend WithEvents x5 As System.Windows.Forms.DataGridView
 End Class
