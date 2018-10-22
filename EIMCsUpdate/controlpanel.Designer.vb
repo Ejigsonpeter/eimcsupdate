@@ -64,6 +64,7 @@ Partial Class controlpanel
         Me.BunifuCustomLabel16 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel15 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.loanpassport = New System.Windows.Forms.PictureBox()
+        Me.btnsearch = New EIMCsUpdate.iTalk.iTalk_Button_2()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.loanpassport, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -528,11 +529,26 @@ Partial Class controlpanel
         Me.loanpassport.TabIndex = 228
         Me.loanpassport.TabStop = False
         '
+        'btnsearch
+        '
+        Me.btnsearch.BackColor = System.Drawing.Color.White
+        Me.btnsearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsearch.ForeColor = System.Drawing.Color.White
+        Me.btnsearch.Image = Nothing
+        Me.btnsearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnsearch.Location = New System.Drawing.Point(1177, 130)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(75, 34)
+        Me.btnsearch.TabIndex = 255
+        Me.btnsearch.Text = "Search"
+        Me.btnsearch.TextAlignment = System.Drawing.StringAlignment.Center
+        '
         'controlpanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 645)
+        Me.Controls.Add(Me.btnsearch)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.txtemer)
         Me.Controls.Add(Me.BunifuCustomLabel6)
@@ -627,4 +643,5 @@ Partial Class controlpanel
     Friend WithEvents BunifuCustomLabel16 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel15 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents loanpassport As System.Windows.Forms.PictureBox
+    Friend WithEvents btnsearch As EIMCsUpdate.iTalk.iTalk_Button_2
 End Class

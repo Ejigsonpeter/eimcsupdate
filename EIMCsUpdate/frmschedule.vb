@@ -398,7 +398,7 @@ Public Class frmschedule
 
 
             For Line As Integer = 0 To g1.RowCount - 1
-                f = g1.Rows(Line).Cells(4).Value * g1.Rows(Line).Cells(5).Value
+                f = (g1.Rows(Line).Cells(6).Value * (g1.Rows(Line).Cells(7).Value / 100)) + g1.Rows(Line).Cells(6).Value
                 a = g1.Rows(Line).Cells(4).Value - 1
                 b = g1.Rows(Line).Cells(5).Value
                 c = b + g1.Rows(Line).Cells(10).Value

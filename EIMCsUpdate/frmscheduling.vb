@@ -24,7 +24,7 @@ Public Class frmscheduling
             Myconnection.Close()
             Myconnection.Open()
             
-            Dim selectQuery As String = "select sno,ippsno,loantype,amountpayble,status,datepaid from loan"
+            Dim selectQuery As String = "select sno,ippsno,loantype,amountpayble,status,datepaid,amountpaid from loan"
             cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
             da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
             ds = New DataSet
