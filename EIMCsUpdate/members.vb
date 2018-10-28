@@ -6,8 +6,6 @@ Imports MySql.Data.MySqlClient
 Public Class members
 
     Dim imgName1 As String
-    Dim imgName2 As String
-    Dim imgName3 As String
     Dim imgName4 As String
     Dim dr As MySqlDataReader
     Dim da As MySqlDataAdapter
@@ -58,12 +56,12 @@ Public Class members
         txtEimcs.Text = ""
         txtApproved.Text = ""
         txtMDate.Text = ""
-        txtPdate.Text = ""
-        txtGdate.Text = ""
+        'txtPdate.Text = ""
+        'txtGdate.Text = ""
         txtFullname.Text = ""
-        imgGSignature.Image = BackgroundImage
+        'imgGSignature.Image = BackgroundImage
         imgMsignature.Image = BackgroundImage
-        imgPsignature.Image = BackgroundImage
+        'imgPsignature.Image = BackgroundImage
 
         Call datetime()
     End Sub
@@ -163,86 +161,54 @@ Public Class members
     End Sub
 
 
-    Private Sub btnupload_Click(sender As System.Object, e As System.EventArgs) Handles btnupload.Click
+    Private Sub btnupload_Click(sender As System.Object, e As System.EventArgs)
 
-        Try
-            Dim dlgimage As FileDialog = New OpenFileDialog
-            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
-            If dlgimage.ShowDialog() = DialogResult.OK Then
-                imgName1 = dlgimage.FileName
 
-                Dim newImg As New Bitmap(imgName1)
-                imgpix.SizeMode = PictureBoxSizeMode.StretchImage
-                imgpix.Image = DirectCast(newImg, Image)
-            End If
-            dlgimage = Nothing
-        Catch ae As System.ArgumentException
-            imgName1 = " "
-            MessageBox.Show(ae.Message.ToString())
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString())
-        End Try
     End Sub
 
-    Private Sub aupload_Click(sender As System.Object, e As System.EventArgs) Handles aupload.Click
-        Try
-            Dim dlgimage As FileDialog = New OpenFileDialog
-            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
-            If dlgimage.ShowDialog() = DialogResult.OK Then
-                imgName4 = dlgimage.FileName
+    Private Sub aupload_Click(sender As System.Object, e As System.EventArgs)
 
-                Dim newImg As New Bitmap(imgName4)
-                imgMsignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgMsignature.Image = DirectCast(newImg, Image)
-            End If
-            dlgimage = Nothing
-        Catch ae As System.ArgumentException
-            imgName4 = " "
-            MessageBox.Show(ae.Message.ToString())
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString())
-        End Try
     End Sub
 
-    Private Sub pupload_Click(sender As System.Object, e As System.EventArgs) Handles pupload.Click
-        Try
-            Dim dlgimage As FileDialog = New OpenFileDialog
-            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
-            If dlgimage.ShowDialog() = DialogResult.OK Then
-                imgName3 = dlgimage.FileName
+    'Private Sub pupload_Click(sender As System.Object, e As System.EventArgs)
+    '    Try
+    '        Dim dlgimage As FileDialog = New OpenFileDialog
+    '        dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
+    '        If dlgimage.ShowDialog() = DialogResult.OK Then
+    '            imgName3 = dlgimage.FileName
 
-                Dim newImg As New Bitmap(imgName3)
-                imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgPsignature.Image = DirectCast(newImg, Image)
-            End If
-            dlgimage = Nothing
-        Catch ae As System.ArgumentException
-            imgName3 = " "
-            MessageBox.Show(ae.Message.ToString())
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString())
-        End Try
-    End Sub
+    '            Dim newImg As New Bitmap(imgName3)
+    '            imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
+    '            imgPsignature.Image = DirectCast(newImg, Image)
+    '        End If
+    '        dlgimage = Nothing
+    '    Catch ae As System.ArgumentException
+    '        imgName3 = " "
+    '        MessageBox.Show(ae.Message.ToString())
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message.ToString())
+    '    End Try
+    'End Sub
 
-    Private Sub supload_Click(sender As System.Object, e As System.EventArgs) Handles supload.Click
-        Try
-            Dim dlgimage As FileDialog = New OpenFileDialog
-            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
-            If dlgimage.ShowDialog() = DialogResult.OK Then
-                imgName2 = dlgimage.FileName
+    'Private Sub supload_Click(sender As System.Object, e As System.EventArgs)
+    '    Try
+    '        Dim dlgimage As FileDialog = New OpenFileDialog
+    '        dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
+    '        If dlgimage.ShowDialog() = DialogResult.OK Then
+    '            imgName2 = dlgimage.FileName
 
-                Dim newImg As New Bitmap(imgName2)
-                imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgGSignature.Image = DirectCast(newImg, Image)
-            End If
-            dlgimage = Nothing
-        Catch ae As System.ArgumentException
-            imgName2 = " "
-            MessageBox.Show(ae.Message.ToString())
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString())
-        End Try
-    End Sub
+    '            Dim newImg As New Bitmap(imgName2)
+    '            imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
+    '            imgGSignature.Image = DirectCast(newImg, Image)
+    '        End If
+    '        dlgimage = Nothing
+    '    Catch ae As System.ArgumentException
+    '        imgName2 = " "
+    '        MessageBox.Show(ae.Message.ToString())
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message.ToString())
+    '    End Try
+    'End Sub
 
     Private Sub btnnext1_Click(sender As System.Object, e As System.EventArgs) Handles btnnext1.Click
         empty1()
@@ -276,15 +242,15 @@ Public Class members
 
         End If
     End Sub
-   
+
     'method to handle date and time
     Sub datetime()
         Dim a As Date
         Dim b As Date
         Dim c As Date
         txtMDate.Text = a.Date
-        txtPdate.Text = b.Date
-        txtGdate.Text = c.Date
+        'txtPdate.Text = b.Date
+        'txtGdate.Text = c.Date
     End Sub
 
     Private Sub members_Load(sender As Object, e As System.EventArgs) Handles Me.Load
@@ -337,8 +303,8 @@ Public Class members
                 txtEimcs.Text = reader.Item("eimcsno").ToString
                 txtApproved.Text = reader.Item("approvalstatus").ToString
                 txtFullname.Text = reader.Item("fullname").ToString
-                txtpdate.Text = reader.Item("presidentdate").ToString
-                txtGdate.Text = reader.Item("gensecdate").ToString
+                'txtpdate.Text = reader.Item("presidentdate").ToString
+                'txtGdate.Text = reader.Item("gensecdate").ToString
                 txtMDate.Text = reader.Item("applicantdate").ToString
 
 
@@ -362,21 +328,21 @@ Public Class members
                 imgMsignature.Refresh()
 
 
-                Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
-                Dim ms2 As New System.IO.MemoryStream(imagepic2)
-                Dim img2 As Image = Image.FromStream(ms2)
-                Me.imgPsignature.Image = img2
-                'studPic.Image = image.FromFile("image.jpg")
-                imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgPsignature.Refresh()
+                'Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
+                'Dim ms2 As New System.IO.MemoryStream(imagepic2)
+                'Dim img2 As Image = Image.FromStream(ms2)
+                'Me.imgPsignature.Image = img2
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgPsignature.Refresh()
 
-                Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
-                Dim ms3 As New System.IO.MemoryStream(imagepic3)
-                Dim img3 As Image = Image.FromStream(ms3)
-                Me.imgGSignature.Image = img3
-                'studPic.Image = image.FromFile("image.jpg")
-                imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgGSignature.Refresh()
+                'Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
+                'Dim ms3 As New System.IO.MemoryStream(imagepic3)
+                'Dim img3 As Image = Image.FromStream(ms3)
+                'Me.imgGSignature.Image = img3
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgGSignature.Refresh()
                 Myconnection.Close()
 
 
@@ -438,8 +404,8 @@ Public Class members
                 txtEimcs.Text = reader.Item("eimcsno").ToString
                 txtApproved.Text = reader.Item("approvalstatus").ToString
                 txtFullname.Text = reader.Item("fullname").ToString
-                txtpdate.Text = reader.Item("presidentdate").ToString
-                txtGdate.Text = reader.Item("gensecdate").ToString
+                'txtpdate.Text = reader.Item("presidentdate").ToString
+                'txtGdate.Text = reader.Item("gensecdate").ToString
                 txtMDate.Text = reader.Item("applicantdate").ToString
 
 
@@ -463,21 +429,21 @@ Public Class members
                 imgMsignature.Refresh()
 
 
-                Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
-                Dim ms2 As New System.IO.MemoryStream(imagepic2)
-                Dim img2 As Image = Image.FromStream(ms2)
-                Me.imgPsignature.Image = img2
-                'studPic.Image = image.FromFile("image.jpg")
-                imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgPsignature.Refresh()
+                'Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
+                'Dim ms2 As New System.IO.MemoryStream(imagepic2)
+                'Dim img2 As Image = Image.FromStream(ms2)
+                'Me.imgPsignature.Image = img2
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgPsignature.Refresh()
 
-                Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
-                Dim ms3 As New System.IO.MemoryStream(imagepic3)
-                Dim img3 As Image = Image.FromStream(ms3)
-                Me.imgGSignature.Image = img3
-                'studPic.Image = image.FromFile("image.jpg")
-                imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgGSignature.Refresh()
+                'Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
+                'Dim ms3 As New System.IO.MemoryStream(imagepic3)
+                'Dim img3 As Image = Image.FromStream(ms3)
+                'Me.imgGSignature.Image = img3
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgGSignature.Refresh()
                 Myconnection.Close()
 
 
@@ -539,8 +505,8 @@ Public Class members
                 txtEimcs.Text = reader.Item("eimcsno").ToString
                 txtApproved.Text = reader.Item("approvalstatus").ToString
                 txtFullname.Text = reader.Item("fullname").ToString
-                txtpdate.Text = reader.Item("presidentdate").ToString
-                txtGdate.Text = reader.Item("gensecdate").ToString
+                'txtpdate.Text = reader.Item("presidentdate").ToString
+                'txtGdate.Text = reader.Item("gensecdate").ToString
                 txtMDate.Text = reader.Item("applicantdate").ToString
 
 
@@ -564,21 +530,21 @@ Public Class members
                 imgMsignature.Refresh()
 
 
-                Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
-                Dim ms2 As New System.IO.MemoryStream(imagepic2)
-                Dim img2 As Image = Image.FromStream(ms2)
-                Me.imgPsignature.Image = img2
-                'studPic.Image = image.FromFile("image.jpg")
-                imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgPsignature.Refresh()
+                'Dim imagepic2 As Byte() = CType(reader("presidentsignature"), Byte())
+                'Dim ms2 As New System.IO.MemoryStream(imagepic2)
+                'Dim img2 As Image = Image.FromStream(ms2)
+                'Me.imgPsignature.Image = img2
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgPsignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgPsignature.Refresh()
 
-                Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
-                Dim ms3 As New System.IO.MemoryStream(imagepic3)
-                Dim img3 As Image = Image.FromStream(ms3)
-                Me.imgGSignature.Image = img3
-                'studPic.Image = image.FromFile("image.jpg")
-                imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
-                imgGSignature.Refresh()
+                'Dim imagepic3 As Byte() = CType(reader("secretarysignature"), Byte())
+                'Dim ms3 As New System.IO.MemoryStream(imagepic3)
+                'Dim img3 As Image = Image.FromStream(ms3)
+                'Me.imgGSignature.Image = img3
+                ''studPic.Image = image.FromFile("image.jpg")
+                'imgGSignature.SizeMode = PictureBoxSizeMode.StretchImage
+                'imgGSignature.Refresh()
                 Myconnection.Close()
 
 
@@ -600,36 +566,26 @@ Public Class members
             Myconnection.Close()
             Myconnection.Open()
 
-            If imgName1 <> "" And imgName2 <> "" And imgName3 <> "" And imgName4 <> "" Then
+            If imgName1 <> "" And imgName4 <> "" Then
                 Dim fs1 As FileStream
                 Dim fs2 As FileStream
-                Dim fs3 As FileStream
-                Dim fs4 As FileStream
+
 
                 fs1 = New FileStream(imgName1, FileMode.Open, FileAccess.Read)
                 Dim picByte As Byte() = New Byte(fs1.Length - 1) {}
                 fs1.Read(picByte, 0, System.Convert.ToInt32(fs1.Length))
                 fs1.Close()
 
-                fs2 = New FileStream(imgName2, FileMode.Open, FileAccess.Read)
+                fs2 = New FileStream(imgName4, FileMode.Open, FileAccess.Read)
                 Dim picByte2 As Byte() = New Byte(fs2.Length - 1) {}
                 fs2.Read(picByte2, 0, System.Convert.ToInt32(fs2.Length))
                 fs2.Close()
 
-                fs3 = New FileStream(imgName3, FileMode.Open, FileAccess.Read)
-                Dim picByte3 As Byte() = New Byte(fs3.Length - 1) {}
-                fs3.Read(picByte3, 0, System.Convert.ToInt32(fs3.Length))
-                fs3.Close()
-
-                fs4 = New FileStream(imgName4, FileMode.Open, FileAccess.Read)
-                Dim picByte4 As Byte() = New Byte(fs4.Length - 1) {}
-                fs4.Read(picByte4, 0, System.Convert.ToInt32(fs4.Length))
-                fs4.Close()
 
 
                 Dim sql As String
-                sql = "insert into members (surname,firstname,middlename,ippsno,fileno,deptunit,rank,location,phoneno1,phoneno2,residentialaddress,nextofkinname1,nextofkinphoneno1,nextofkinrelationship1,nextofkinaddress1,nextofkinname2,nextofkinphoneno2,nextofkinrelationship2,nextofkinaddress2,shares,savings,Registrationfees,eimcsno,approvalstatus,fullname,presidentdate,gensecdate,applicantdate,passport,signature,presidentsignature,secretarysignature)" _
-                    & "VALUES(@surname,@firstname,@middlename,@ippsno,@fileno,@deptunit,@rank,@location,@phoneno1,@phoneno2,@residentialaddress,@nextofkinname1,@nextofkinphoneno1,@nextofkinrelationship1, @nextofkinaddress1,@nextofkinname2, @nextofkinphoneno2, @nextofkinrelationship2,@nextofkinaddress2,@shares, @savings,@Registrationfees, @eimcsno, @approvalstatus, @fullname,@presidentdate,@gensecdate,@applicantdate,@passport,@signature,@president,@sec)"
+                sql = "insert into members (surname,firstname,middlename,ippsno,fileno,deptunit,rank,location,phoneno1,phoneno2,residentialaddress,nextofkinname1,nextofkinphoneno1,nextofkinrelationship1,nextofkinaddress1,nextofkinname2,nextofkinphoneno2,nextofkinrelationship2,nextofkinaddress2,shares,savings,Registrationfees,eimcsno,approvalstatus,fullname,applicantdatE,passport,signature,admin)" _
+                    & "VALUES(@surname,@firstname,@middlename,@ippsno,@fileno,@deptunit,@rank,@location,@phoneno1,@phoneno2,@residentialaddress,@nextofkinname1,@nextofkinphoneno1,@nextofkinrelationship1, @nextofkinaddress1,@nextofkinname2, @nextofkinphoneno2, @nextofkinrelationship2,@nextofkinaddress2,@shares, @savings,@Registrationfees, @eimcsno, @approvalstatus, @fullname,@applicantdate,@passport,@signature,@admin)"
 
                 Dim imgParam As New MySqlParameter()
                 imgParam.MySqlDbType = MySqlDbType.Binary
@@ -641,15 +597,7 @@ Public Class members
                 imgParam1.ParameterName = "signature"
                 imgParam1.Value = picByte2
 
-                Dim imgParam2 As New MySqlParameter()
-                imgParam2.MySqlDbType = MySqlDbType.Binary
-                imgParam2.ParameterName = "president"
-                imgParam2.Value = picByte2
 
-                Dim imgParam3 As New MySqlParameter()
-                imgParam3.MySqlDbType = MySqlDbType.Binary
-                imgParam3.ParameterName = "sec"
-                imgParam3.Value = picByte3
 
                 Dim cmdx As New MySqlCommand(sql, Myconnection)
                 cmdx.Parameters.AddWithValue("@surname", txtSurname.Text)
@@ -677,16 +625,20 @@ Public Class members
                 cmdx.Parameters.AddWithValue("@eimcsno", txtEimcs.Text)
                 cmdx.Parameters.AddWithValue("@approvalstatus", txtApproved.Text)
                 cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
-                cmdx.Parameters.AddWithValue("@presidentdate", txtPdate.Text)
-                cmdx.Parameters.AddWithValue("@gensecdate", txtGdate.Text)
+                'cmdx.Parameters.AddWithValue("@presidentdate", txtPdate.Text)
+
                 cmdx.Parameters.AddWithValue("@applicantdate", txtMDate.Text)
+                cmdx.Parameters.AddWithValue("@admin", "200")
                 cmdx.Parameters.Add(imgParam)
                 cmdx.Parameters.Add(imgParam1)
-                cmdx.Parameters.Add(imgParam2)
-                cmdx.Parameters.Add(imgParam3)
+
                 cmdx.ExecuteNonQuery()
                 MsgBox("Information Saved Successfully ", vbInformation)
                 Myconnection.Close()
+                schedule()
+                shares()
+                savings()
+                admins()
                 logs()
                 savecharges()
 
@@ -694,6 +646,118 @@ Public Class members
                 MsgBox("Upload all the necccessary documents first", MsgBoxStyle.Information)
 
             End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+    'add savings
+    Sub savings()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+            Dim sql As String
+            sql = "insert into savings (fullname,ippsno,amount)" _
+                                 & "VALUES(@fullname,@ippsno,@savings)"
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
+            cmdx.Parameters.AddWithValue("@ippsno", txtippsno.Text)
+            cmdx.Parameters.AddWithValue("@savings", "0")
+            'T_CHARGES
+            cmdx.ExecuteNonQuery()
+            'MsgBox("Information Saved Successfully ", vbInformation)
+            Myconnection.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+    'add admin charges
+    Sub admins()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+            Dim sql As String
+            sql = "insert into admincharges (fullname,ippsno,amount)" _
+                                 & "VALUES(@fullname,@ippsno,@admin)"
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
+            cmdx.Parameters.AddWithValue("@ippsno", txtippsno.Text)
+            cmdx.Parameters.AddWithValue("@admin", "0")
+            'T_CHARGES
+            cmdx.ExecuteNonQuery()
+            'MsgBox("Information Saved Successfully ", vbInformation)
+            Myconnection.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+
+    'add shares
+    Sub shares()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+            Dim sql As String
+            sql = "insert into shares (fullname,ippsno,shareamount)" _
+                                 & "VALUES(@fullname,@ippsno,@share)"
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
+            cmdx.Parameters.AddWithValue("@ippsno", txtippsno.Text)
+            cmdx.Parameters.AddWithValue("@share", "0")
+            'T_CHARGES
+            cmdx.ExecuteNonQuery()
+            'MsgBox("Information Saved Successfully ", vbInformation)
+            Myconnection.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+
+    'update schedules 
+    Sub schedule()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+
+            Dim x As Double
+            x = 200 + Val(txtSavings.Text) + Val(txtshares.Text)
+
+
+            Dim sql As String
+            sql = "insert into schedule (IPPS_NO,EIMCS_NO,FILENO,FULLNAME,ADMIN_CHARGES,SHARE,SAVINGS,T_CHARGES)" _
+                                 & "VALUES(@ippsno,@eimcsno,@fileno,@fullname,@admin,@shares, @savings,@T_CHARGES)"
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
+            cmdx.Parameters.AddWithValue("@ippsno", txtippsno.Text)
+            cmdx.Parameters.AddWithValue("@fileno", txtfileno.Text)
+            cmdx.Parameters.AddWithValue("@eimcsno", txtEimcs.Text)
+            cmdx.Parameters.AddWithValue("@shares", txtshares.Text)
+            cmdx.Parameters.AddWithValue("@savings", txtSavings.Text)
+            cmdx.Parameters.AddWithValue("@admin", "200")
+            cmdx.Parameters.AddWithValue("@T_CHARGES", x)
+            'T_CHARGES
+            cmdx.ExecuteNonQuery()
+            'MsgBox("Information Saved Successfully ", vbInformation)
+            Myconnection.Close()
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -754,7 +818,7 @@ Public Class members
             cmdx.Parameters.AddWithValue("@status", status)
 
             cmdx.ExecuteNonQuery()
-            MsgBox("Information Saved Successfully ", vbInformation)
+            'MsgBox("Information Saved Successfully ", vbInformation)
 
             Myconnection.Close()
 
@@ -798,345 +862,12 @@ Public Class members
         End Try
     End Sub
 
-    Private Sub btnsearch_Click(sender As System.Object, e As System.EventArgs)
-        ' search()
-
-    End Sub
 
     Private Sub ITalk_Button_21_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_21.Click
         clear()
     End Sub
 
-    'handle and validates keystrokes for validating surname
-    Private Sub txtSurname_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSurname.KeyPress
 
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character  Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtSurname.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtFirstname_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtFirstname.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character  Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtFirstname.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtMiddlename_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMiddlename.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character  Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtMiddlename.Focus()
-            End If
-        End If
-    End Sub
-
-
-    Private Sub txtippsno_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtippsno.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtippsno.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtrank_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtrank.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtrank.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtdeptunit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtdeptunit.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtdeptunit.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtfileno_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtfileno.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtfileno.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtphoneno1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtphoneno1.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtphoneno1.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtphoneno2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtphoneno2.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtphoneno2.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtlocation_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtlocation.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtdeptunit.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtresidentialaddress_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtresidentialaddress.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtdeptunit.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtshares_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtshares.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtshares.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtSavings_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSavings.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtSavings.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtRegFee_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtRegFee.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtRegFee.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtEimcs_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtEimcs.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtEimcs.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtApproved_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtApproved.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtApproved.Focus()
-            End If
-        End If
-    End Sub
-
-
-    Private Sub txtFullname_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtFullname.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                txtFullname.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokName1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokName1.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokName1.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokName2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokName2.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokName2.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokRelationship1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokRelationship1.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character  Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokRelationship1.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokRelationship2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokRelationship2.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character  Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokRelationship2.Focus()
-            End If
-        End If
-    End Sub
-
-
-
-    Private Sub nokPhone1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokPhone1.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokPhone1.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokPhoneno2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokPhoneno2.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Digits Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokPhoneno2.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokAddress1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokAddress1.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokAddress1.Focus()
-            End If
-        End If
-    End Sub
-
-    Private Sub nokAddress2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles nokAddress2.KeyPress
-        If (Char.IsControl(e.KeyChar) = False) Then
-            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
-                'do nothing
-            Else
-                e.Handled = True
-                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
-                       MsgBoxStyle.Information, "Verify")
-                nokAddress2.Focus()
-            End If
-        End If
-    End Sub
 
 
 
@@ -1145,7 +876,71 @@ Public Class members
         frmmenu.Show()
     End Sub
 
-    Private Sub btnsearch_Click_1(sender As System.Object, e As System.EventArgs) Handles btnsearch.Click
+
+
+
+
+    Sub generate()
+        Try
+            Dim p As New Random
+
+            Dim numbers As Double = p.Next(1, 10000)
+            x = numbers.ToString("00000")
+            check()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Sub check()
+        Myconnection.Close()
+        Myconnection.Open()
+        Dim reader As MySqlDataReader
+        Dim command As MySqlCommand = New MySqlCommand
+        command.Connection = Myconnection
+
+        command.CommandText = "SELECT * FROM members WHERE eimcsno  = '" & x & "'"
+        reader = command.ExecuteReader(CommandBehavior.CloseConnection)
+        Dim count As Integer
+        count = 0
+        While reader.Read
+            count = count + 1
+        End While
+        If count > 0 Then
+
+            Myconnection.Close()
+            generate()
+        Else
+            txtEimcs.Text = x
+        End If
+    End Sub
+
+    Private Sub txtsearch_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs)
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtsearch.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+
+
+    Private Sub btngenerate_Click(sender As System.Object, e As System.EventArgs) Handles btngenerate.Click
+        generate()
+    End Sub
+
+
+
+    Private Sub btnsearch_Click_2(sender As System.Object, e As System.EventArgs) Handles btnsearch.Click
         'search()
         Dim a As String
         a = Len(txtsearch.Text)
@@ -1215,47 +1010,87 @@ Public Class members
         End If
 
     End Sub
-   
 
-    
-    Sub generate()
+    Private Sub btnupload_Click_1(sender As System.Object, e As System.EventArgs) Handles btnupload.Click
         Try
-            Dim p As New Random
+            Dim dlgimage As FileDialog = New OpenFileDialog
+            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
+            If dlgimage.ShowDialog() = DialogResult.OK Then
+                imgName1 = dlgimage.FileName
 
-            Dim numbers As Double = p.Next(1, 10000)
-            x = numbers.ToString("00000")
-            check()
-
-
+                Dim newImg As New Bitmap(imgName1)
+                imgpix.SizeMode = PictureBoxSizeMode.StretchImage
+                imgpix.Image = DirectCast(newImg, Image)
+            End If
+            dlgimage = Nothing
+        Catch ae As System.ArgumentException
+            imgName1 = " "
+            MessageBox.Show(ae.Message.ToString())
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message.ToString())
         End Try
     End Sub
 
-    Sub check()
-        Myconnection.Close()
-        Myconnection.Open()
-        Dim reader As MySqlDataReader
-        Dim command As MySqlCommand = New MySqlCommand
-        command.Connection = Myconnection
+    Private Sub btnsignature_Click(sender As System.Object, e As System.EventArgs) Handles btnsignature.Click
+        Try
+            Dim dlgimage As FileDialog = New OpenFileDialog
+            dlgimage.Filter = "Image File (*.jpg;*.bmp;*.gif)|*.jpg;*.bmp;*.gif"
+            If dlgimage.ShowDialog() = DialogResult.OK Then
+                imgName4 = dlgimage.FileName
 
-        command.CommandText = "SELECT * FROM members WHERE eimcsno  = '" & x & "'"
-        reader = command.ExecuteReader(CommandBehavior.CloseConnection)
-        Dim count As Integer
-        count = 0
-        While reader.Read
-            count = count + 1
-        End While
-        If count > 0 Then
+                Dim newImg As New Bitmap(imgName4)
+                imgMsignature.SizeMode = PictureBoxSizeMode.StretchImage
+                imgMsignature.Image = DirectCast(newImg, Image)
+            End If
+            dlgimage = Nothing
+        Catch ae As System.ArgumentException
+            imgName4 = " "
+            MessageBox.Show(ae.Message.ToString())
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        End Try
+    End Sub
 
-            Myconnection.Close()
-            generate()
-        Else
-            txtEimcs.Text = x
+    Private Sub txtSurname_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtSurname.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character  Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtSurname.Focus()
+            End If
         End If
     End Sub
 
-    Private Sub txtsearch_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtsearch.KeyPress
+    Private Sub txtFirstname_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtFirstname.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character  Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtFirstname.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtMiddlename_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtMiddlename.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character  Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtMiddlename.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtippsno_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtippsno.KeyPress
         If (Char.IsControl(e.KeyChar) = False) Then
             If (Char.IsDigit(e.KeyChar)) Then
                 'do nothing
@@ -1263,24 +1098,302 @@ Public Class members
                 e.Handled = True
                 MsgBox("Sorry Only Digits Allowed!!", _
                        MsgBoxStyle.Information, "Verify")
-                txtsearch.Focus()
+                txtippsno.Focus()
             End If
         End If
     End Sub
 
-   
-
-
-  
-    Private Sub btngenerate_Click(sender As System.Object, e As System.EventArgs) Handles btngenerate.Click
-        generate()
+    Private Sub txtphoneno1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtphoneno1.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtphoneno1.Focus()
+            End If
+        End If
     End Sub
 
-    Private Sub txtSurname_OnValueChanged(sender As System.Object, e As System.EventArgs) Handles txtSurname.OnValueChanged
+    Private Sub txtphoneno2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtphoneno2.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtphoneno2.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtlocation_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtlocation.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtdeptunit.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtrank_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtrank.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtrank.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtfileno_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtfileno.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtfileno.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtdeptunit_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtdeptunit.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtdeptunit.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtresidentialaddress_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtresidentialaddress.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtdeptunit.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub nokName1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokName1.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokName1.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtSavings_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtSavings.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtSavings.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtRegFee_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtRegFee.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtRegFee.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub nokAddress2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokAddress2.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokAddress2.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub nokRelationship2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokRelationship2.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character  Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokRelationship2.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+
+
+
+
+    Private Sub nokName2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokName2.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokName2.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub nokPhoneno2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokPhoneno2.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokPhoneno2.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub nokAddress1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokAddress1.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Or (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character Digits & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokAddress1.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub nokRelationship1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokRelationship1.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character  Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokRelationship1.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub nokPhone1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nokPhone1.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                nokPhone1.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtshares_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtshares.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtshares.Focus()
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub txtshares_OnValueChanged(sender As System.Object, e As System.EventArgs) Handles txtshares.OnValueChanged
 
     End Sub
 
-    Private Sub txtphoneno1_OnValueChanged(sender As System.Object, e As System.EventArgs) Handles txtphoneno1.OnValueChanged
-
+    Private Sub txtFullname_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtFullname.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtFullname.Focus()
+            End If
+        End If
     End Sub
+
+    Private Sub txtApproved_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtApproved.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsLetter(e.KeyChar)) Or (Char.IsWhiteSpace(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Character & Spaces Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtApproved.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtEimcs_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtEimcs.KeyPress
+        If (Char.IsControl(e.KeyChar) = False) Then
+            If (Char.IsDigit(e.KeyChar)) Then
+                'do nothing
+            Else
+                e.Handled = True
+                MsgBox("Sorry Only Digits Allowed!!", _
+                       MsgBoxStyle.Information, "Verify")
+                txtEimcs.Focus()
+            End If
+        End If
+    End Sub
+
+
+
 End Class

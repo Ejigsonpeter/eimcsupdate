@@ -26,7 +26,7 @@ Partial Class frmaddadminvb
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txtpass = New EIMCsUpdate.iTalk.iTalk_TextBox_Small()
         Me.txtid = New EIMCsUpdate.iTalk.iTalk_TextBox_Small()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Labelx = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtnpassword = New EIMCsUpdate.iTalk.iTalk_TextBox_Small()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -41,6 +41,7 @@ Partial Class frmaddadminvb
         Me.Label6 = New System.Windows.Forms.Label()
         Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -97,16 +98,16 @@ Partial Class frmaddadminvb
         Me.txtid.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtid.UseSystemPasswordChar = False
         '
-        'Label2
+        'Labelx
         '
-        Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(234, 255)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(160, 21)
-        Me.Label2.TabIndex = 156
-        Me.Label2.Text = "Old Password :"
+        Me.Labelx.BackColor = System.Drawing.Color.White
+        Me.Labelx.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labelx.ForeColor = System.Drawing.Color.Black
+        Me.Labelx.Location = New System.Drawing.Point(234, 255)
+        Me.Labelx.Name = "Labelx"
+        Me.Labelx.Size = New System.Drawing.Size(160, 21)
+        Me.Labelx.TabIndex = 156
+        Me.Labelx.Text = "Old Password :"
         '
         'Label1
         '
@@ -287,11 +288,22 @@ Partial Class frmaddadminvb
         Me.BunifuCustomLabel3.TabIndex = 223
         Me.BunifuCustomLabel3.Text = "ADD NEW USER"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(311, 47)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 224
+        Me.Label2.Text = "Label7"
+        Me.Label2.Visible = False
+        '
         'frmaddadminvb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 645)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BunifuCustomLabel3)
         Me.Controls.Add(Me.BunifuCustomLabel2)
         Me.Controls.Add(Me.ITalk_Button_22)
@@ -307,7 +319,7 @@ Partial Class frmaddadminvb
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.txtid)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Labelx)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnback)
         Me.Controls.Add(Me.PictureBox1)
@@ -323,7 +335,7 @@ Partial Class frmaddadminvb
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents txtpass As EIMCsUpdate.iTalk.iTalk_TextBox_Small
     Friend WithEvents txtid As EIMCsUpdate.iTalk.iTalk_TextBox_Small
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Labelx As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtnpassword As EIMCsUpdate.iTalk.iTalk_TextBox_Small
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -338,4 +350,5 @@ Partial Class frmaddadminvb
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

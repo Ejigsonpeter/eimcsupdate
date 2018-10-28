@@ -52,7 +52,10 @@ Public Class frmaddadminvb
                     cmdx.ExecuteNonQuery()
 
                     Myconnection.Close()
-                   
+                    log1()
+                    txtid.Text = ""
+                    txtpass.Text = ""
+                    txtnpassword.Text = ""
 
 
                 Else
@@ -96,7 +99,10 @@ Public Class frmaddadminvb
 
                 cmdx.ExecuteNonQuery()
                 MsgBox("User Added Successfully ", vbInformation)
-
+                logs()
+                txtcpassword.Text = ""
+                txtnpassword.Text = ""
+                txtusername.Text = ""
 
 
             Catch ex As Exception
@@ -106,4 +112,76 @@ Public Class frmaddadminvb
 
         End If
     End Sub
+
+    'fully logged
+    Sub log1()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = "Change user password " & txtid.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", Label2.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+
+
+    End Sub
+    Sub logs()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = "Add new username and password for " & txtusername.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", Label2.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+
+
+    End Sub
+
+
 End Class

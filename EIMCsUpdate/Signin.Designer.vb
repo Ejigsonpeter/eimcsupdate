@@ -97,7 +97,7 @@ Partial Class Signin
         '
         'txtid
         '
-        Me.txtid.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtid.BackColor = System.Drawing.Color.Yellow
         Me.txtid.Font = New System.Drawing.Font("Tempus Sans ITC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtid.ForeColor = System.Drawing.Color.Black
         Me.txtid.Location = New System.Drawing.Point(926, 262)
@@ -112,7 +112,7 @@ Partial Class Signin
         '
         'txtpass
         '
-        Me.txtpass.BackColor = System.Drawing.Color.Transparent
+        Me.txtpass.BackColor = System.Drawing.Color.Yellow
         Me.txtpass.Font = New System.Drawing.Font("Tempus Sans ITC", 15.75!)
         Me.txtpass.ForeColor = System.Drawing.Color.Black
         Me.txtpass.Location = New System.Drawing.Point(925, 334)

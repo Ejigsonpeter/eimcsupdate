@@ -123,18 +123,12 @@ Public Class Signin
 
                     x = reader.Item("fullname").ToString
                     frmmenu.Label2.Text = x
-                    members.Label2.Text = x
-                    Loan.TextBox1.Text = x
-                    viewmembers.Label2.Text = x
-                    frmclearloan.TextBox1.Text = x
+                   
 
-                    frmviewloans.Label2.Text = x
+                    
 
 
-
-
-                    fn = reader.Item("fullname").ToString
-
+                    fn = x
                     MsgBox("Access Granted  " & fn, vbInformation)
                     Me.Hide()
                     frmmenu.Show()

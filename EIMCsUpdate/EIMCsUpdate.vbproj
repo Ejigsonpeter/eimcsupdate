@@ -56,6 +56,7 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MySql.Data.DLL</HintPath>
@@ -88,6 +89,12 @@
     <Compile Include="Class1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="clearloan.Designer.vb">
+      <DependentUpon>clearloan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="clearloan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="controlpanel.Designer.vb">
       <DependentUpon>controlpanel.vb</DependentUpon>
     </Compile>
@@ -98,12 +105,6 @@
       <DependentUpon>frmaddadminvb.vb</DependentUpon>
     </Compile>
     <Compile Include="frmaddadminvb.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmclearloan.Designer.vb">
-      <DependentUpon>frmclearloan.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmclearloan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmschedule.Designer.vb">
@@ -131,13 +132,6 @@
       <DependentUpon>Loan.vb</DependentUpon>
     </Compile>
     <Compile Include="Loan.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="members.Designer.vb">
@@ -170,10 +164,35 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PrintDGV.vb" />
+    <Compile Include="printoptions.Designer.vb">
+      <DependentUpon>printoptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="printoptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printreport.Designer.vb">
+      <DependentUpon>printreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="printreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="S.Designer.vb">
+      <DependentUpon>S.vb</DependentUpon>
+    </Compile>
+    <Compile Include="S.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Signin.Designer.vb">
       <DependentUpon>Signin.vb</DependentUpon>
     </Compile>
     <Compile Include="Signin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="systemlog.Designer.vb">
+      <DependentUpon>systemlog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="systemlog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewmembers.Designer.vb">
@@ -184,14 +203,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="clearloan.resx">
+      <DependentUpon>clearloan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controlpanel.resx">
       <DependentUpon>controlpanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmaddadminvb.resx">
       <DependentUpon>frmaddadminvb.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmclearloan.resx">
-      <DependentUpon>frmclearloan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmschedule.resx">
       <DependentUpon>frmschedule.vb</DependentUpon>
@@ -205,9 +224,6 @@
     <EmbeddedResource Include="Loan.resx">
       <DependentUpon>Loan.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="members.resx">
       <DependentUpon>members.vb</DependentUpon>
     </EmbeddedResource>
@@ -220,8 +236,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="printoptions.resx">
+      <DependentUpon>printoptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printreport.resx">
+      <DependentUpon>printreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="S.resx">
+      <DependentUpon>S.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signin.resx">
       <DependentUpon>Signin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="systemlog.resx">
+      <DependentUpon>systemlog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewmembers.resx">
       <DependentUpon>viewmembers.vb</DependentUpon>
@@ -304,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="folder.ico" />
+    <Content Include="Resources\LOGO.png" />
+    <None Include="Resources\z1.png" />
+    <None Include="Resources\LOGO1.png" />
     <None Include="Resources\logo-login1.png" />
     <None Include="Resources\no_user.png" />
     <None Include="Resources\spaced2.jpg" />

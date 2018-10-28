@@ -23,11 +23,12 @@ Partial Class frmmenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ITalk_ThemeContainer1 = New EIMCsUpdate.iTalk.iTalk_ThemeContainer()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ITalk_ControlBox1 = New EIMCsUpdate.iTalk.iTalk_ControlBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BunifuTileButton8 = New Bunifu.Framework.UI.BunifuTileButton()
+        Me.BunifuTileButton9 = New Bunifu.Framework.UI.BunifuTileButton()
         Me.BunifuTileButton5 = New Bunifu.Framework.UI.BunifuTileButton()
         Me.BunifuTileButton3 = New Bunifu.Framework.UI.BunifuTileButton()
         Me.BunifuTileButton6 = New Bunifu.Framework.UI.BunifuTileButton()
@@ -38,7 +39,6 @@ Partial Class frmmenu
         Me.BunifuTileButton1 = New Bunifu.Framework.UI.BunifuTileButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ITalk_ThemeContainer1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,7 +46,6 @@ Partial Class frmmenu
         'ITalk_ThemeContainer1
         '
         Me.ITalk_ThemeContainer1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.ITalk_ThemeContainer1.Controls.Add(Me.PictureBox2)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.Label2)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.Label1)
         Me.ITalk_ThemeContainer1.Controls.Add(Me.ITalk_ControlBox1)
@@ -59,21 +58,11 @@ Partial Class frmmenu
         Me.ITalk_ThemeContainer1.Name = "ITalk_ThemeContainer1"
         Me.ITalk_ThemeContainer1.Padding = New System.Windows.Forms.Padding(3, 28, 3, 28)
         Me.ITalk_ThemeContainer1.Sizable = True
-        Me.ITalk_ThemeContainer1.Size = New System.Drawing.Size(1273, 690)
+        Me.ITalk_ThemeContainer1.Size = New System.Drawing.Size(1329, 690)
         Me.ITalk_ThemeContainer1.SmartBounds = False
         Me.ITalk_ThemeContainer1.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation
         Me.ITalk_ThemeContainer1.TabIndex = 0
         Me.ITalk_ThemeContainer1.Text = "Main Menu"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.EIMCsUpdate.My.Resources.Resources.close_red
-        Me.PictureBox2.Location = New System.Drawing.Point(1191, 24)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(74, 50)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 10
-        Me.PictureBox2.TabStop = False
         '
         'Label2
         '
@@ -103,7 +92,7 @@ Partial Class frmmenu
         '
         Me.ITalk_ControlBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ITalk_ControlBox1.BackColor = System.Drawing.Color.Transparent
-        Me.ITalk_ControlBox1.Location = New System.Drawing.Point(1192, -1)
+        Me.ITalk_ControlBox1.Location = New System.Drawing.Point(1248, -1)
         Me.ITalk_ControlBox1.Name = "ITalk_ControlBox1"
         Me.ITalk_ControlBox1.Size = New System.Drawing.Size(77, 19)
         Me.ITalk_ControlBox1.TabIndex = 7
@@ -112,6 +101,8 @@ Partial Class frmmenu
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.BunifuTileButton8)
+        Me.Panel1.Controls.Add(Me.BunifuTileButton9)
         Me.Panel1.Controls.Add(Me.BunifuTileButton5)
         Me.Panel1.Controls.Add(Me.BunifuTileButton3)
         Me.Panel1.Controls.Add(Me.BunifuTileButton6)
@@ -120,10 +111,49 @@ Partial Class frmmenu
         Me.Panel1.Controls.Add(Me.btnloan)
         Me.Panel1.Controls.Add(Me.BunifuTileButton2)
         Me.Panel1.Controls.Add(Me.BunifuTileButton1)
-        Me.Panel1.Location = New System.Drawing.Point(157, 155)
+        Me.Panel1.Location = New System.Drawing.Point(32, 137)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1002, 408)
+        Me.Panel1.Size = New System.Drawing.Size(1264, 408)
         Me.Panel1.TabIndex = 6
+        '
+        'BunifuTileButton8
+        '
+        Me.BunifuTileButton8.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BunifuTileButton8.color = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BunifuTileButton8.colorActive = System.Drawing.Color.Blue
+        Me.BunifuTileButton8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuTileButton8.Font = New System.Drawing.Font("Century Gothic", 15.75!)
+        Me.BunifuTileButton8.ForeColor = System.Drawing.Color.White
+        Me.BunifuTileButton8.Image = Global.EIMCsUpdate.My.Resources.Resources.download__1_
+        Me.BunifuTileButton8.ImagePosition = 20
+        Me.BunifuTileButton8.ImageZoom = 50
+        Me.BunifuTileButton8.LabelPosition = 41
+        Me.BunifuTileButton8.LabelText = "View Logs"
+        Me.BunifuTileButton8.Location = New System.Drawing.Point(751, 209)
+        Me.BunifuTileButton8.Margin = New System.Windows.Forms.Padding(6)
+        Me.BunifuTileButton8.Name = "BunifuTileButton8"
+        Me.BunifuTileButton8.Size = New System.Drawing.Size(231, 180)
+        Me.BunifuTileButton8.TabIndex = 19
+        '
+        'BunifuTileButton9
+        '
+        Me.BunifuTileButton9.BackColor = System.Drawing.Color.Purple
+        Me.BunifuTileButton9.color = System.Drawing.Color.Purple
+        Me.BunifuTileButton9.colorActive = System.Drawing.Color.DarkSlateGray
+        Me.BunifuTileButton9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuTileButton9.Font = New System.Drawing.Font("Century Gothic", 15.75!)
+        Me.BunifuTileButton9.ForeColor = System.Drawing.Color.White
+        Me.BunifuTileButton9.Image = Global.EIMCsUpdate.My.Resources.Resources.close_red
+        Me.BunifuTileButton9.ImagePosition = 20
+        Me.BunifuTileButton9.ImageZoom = 50
+        Me.BunifuTileButton9.LabelPosition = 41
+        Me.BunifuTileButton9.LabelText = "Log out"
+        Me.BunifuTileButton9.Location = New System.Drawing.Point(994, 208)
+        Me.BunifuTileButton9.Margin = New System.Windows.Forms.Padding(6)
+        Me.BunifuTileButton9.Name = "BunifuTileButton9"
+        Me.BunifuTileButton9.Size = New System.Drawing.Size(231, 180)
+        Me.BunifuTileButton9.TabIndex = 18
+        Me.BunifuTileButton9.TabStop = False
         '
         'BunifuTileButton5
         '
@@ -138,7 +168,7 @@ Partial Class frmmenu
         Me.BunifuTileButton5.ImageZoom = 50
         Me.BunifuTileButton5.LabelPosition = 41
         Me.BunifuTileButton5.LabelText = "Reset Password"
-        Me.BunifuTileButton5.Location = New System.Drawing.Point(754, 208)
+        Me.BunifuTileButton5.Location = New System.Drawing.Point(994, 16)
         Me.BunifuTileButton5.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton5.Name = "BunifuTileButton5"
         Me.BunifuTileButton5.Size = New System.Drawing.Size(231, 180)
@@ -157,7 +187,7 @@ Partial Class frmmenu
         Me.BunifuTileButton3.ImageZoom = 50
         Me.BunifuTileButton3.LabelPosition = 41
         Me.BunifuTileButton3.LabelText = "Loan Records"
-        Me.BunifuTileButton3.Location = New System.Drawing.Point(262, 208)
+        Me.BunifuTileButton3.Location = New System.Drawing.Point(265, 208)
         Me.BunifuTileButton3.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton3.Name = "BunifuTileButton3"
         Me.BunifuTileButton3.Size = New System.Drawing.Size(231, 180)
@@ -176,7 +206,7 @@ Partial Class frmmenu
         Me.BunifuTileButton6.ImageZoom = 50
         Me.BunifuTileButton6.LabelPosition = 41
         Me.BunifuTileButton6.LabelText = "Generate Report"
-        Me.BunifuTileButton6.Location = New System.Drawing.Point(511, 208)
+        Me.BunifuTileButton6.Location = New System.Drawing.Point(508, 209)
         Me.BunifuTileButton6.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton6.Name = "BunifuTileButton6"
         Me.BunifuTileButton6.Size = New System.Drawing.Size(231, 180)
@@ -209,7 +239,7 @@ Partial Class frmmenu
         Me.BunifuTileButton7.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BunifuTileButton7.Font = New System.Drawing.Font("Century Gothic", 15.75!)
         Me.BunifuTileButton7.ForeColor = System.Drawing.Color.White
-        Me.BunifuTileButton7.Image = Global.EIMCsUpdate.My.Resources.Resources.icon2
+        Me.BunifuTileButton7.Image = Global.EIMCsUpdate.My.Resources.Resources.img_205396
         Me.BunifuTileButton7.ImagePosition = 20
         Me.BunifuTileButton7.ImageZoom = 50
         Me.BunifuTileButton7.LabelPosition = 41
@@ -222,9 +252,9 @@ Partial Class frmmenu
         '
         'btnloan
         '
-        Me.btnloan.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnloan.color = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnloan.colorActive = System.Drawing.Color.Blue
+        Me.btnloan.BackColor = System.Drawing.Color.Purple
+        Me.btnloan.color = System.Drawing.Color.Purple
+        Me.btnloan.colorActive = System.Drawing.Color.DarkSlateGray
         Me.btnloan.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnloan.Font = New System.Drawing.Font("Century Gothic", 15.75!)
         Me.btnloan.ForeColor = System.Drawing.Color.White
@@ -233,7 +263,7 @@ Partial Class frmmenu
         Me.btnloan.ImageZoom = 50
         Me.btnloan.LabelPosition = 41
         Me.btnloan.LabelText = "Loan"
-        Me.btnloan.Location = New System.Drawing.Point(509, 17)
+        Me.btnloan.Location = New System.Drawing.Point(265, 16)
         Me.btnloan.Margin = New System.Windows.Forms.Padding(6)
         Me.btnloan.Name = "btnloan"
         Me.btnloan.Size = New System.Drawing.Size(231, 180)
@@ -241,18 +271,18 @@ Partial Class frmmenu
         '
         'BunifuTileButton2
         '
-        Me.BunifuTileButton2.BackColor = System.Drawing.Color.Purple
-        Me.BunifuTileButton2.color = System.Drawing.Color.Purple
-        Me.BunifuTileButton2.colorActive = System.Drawing.Color.DarkSlateGray
+        Me.BunifuTileButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BunifuTileButton2.color = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BunifuTileButton2.colorActive = System.Drawing.Color.Blue
         Me.BunifuTileButton2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BunifuTileButton2.Font = New System.Drawing.Font("Century Gothic", 15.75!)
         Me.BunifuTileButton2.ForeColor = System.Drawing.Color.White
-        Me.BunifuTileButton2.Image = Global.EIMCsUpdate.My.Resources.Resources.icon11
+        Me.BunifuTileButton2.Image = Global.EIMCsUpdate.My.Resources.Resources.buy_with_cash_512
         Me.BunifuTileButton2.ImagePosition = 20
         Me.BunifuTileButton2.ImageZoom = 50
         Me.BunifuTileButton2.LabelPosition = 41
-        Me.BunifuTileButton2.LabelText = "Members Loan Status"
-        Me.BunifuTileButton2.Location = New System.Drawing.Point(262, 17)
+        Me.BunifuTileButton2.LabelText = "Clear Loan"
+        Me.BunifuTileButton2.Location = New System.Drawing.Point(508, 17)
         Me.BunifuTileButton2.Margin = New System.Windows.Forms.Padding(6)
         Me.BunifuTileButton2.Name = "BunifuTileButton2"
         Me.BunifuTileButton2.Size = New System.Drawing.Size(231, 180)
@@ -266,7 +296,7 @@ Partial Class frmmenu
         Me.BunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BunifuTileButton1.Font = New System.Drawing.Font("Century Gothic", 15.75!)
         Me.BunifuTileButton1.ForeColor = System.Drawing.Color.White
-        Me.BunifuTileButton1.Image = Global.EIMCsUpdate.My.Resources.Resources.img_205396
+        Me.BunifuTileButton1.Image = Global.EIMCsUpdate.My.Resources.Resources.User_logout
         Me.BunifuTileButton1.ImagePosition = 20
         Me.BunifuTileButton1.ImageZoom = 50
         Me.BunifuTileButton1.LabelPosition = 41
@@ -282,7 +312,8 @@ Partial Class frmmenu
         Me.PictureBox1.Image = Global.EIMCsUpdate.My.Resources.Resources.spaced
         Me.PictureBox1.Location = New System.Drawing.Point(2, 23)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1266, 643)
+        Me.PictureBox1.Size = New System.Drawing.Size(1323, 643)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
@@ -290,7 +321,7 @@ Partial Class frmmenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1273, 690)
+        Me.ClientSize = New System.Drawing.Size(1329, 690)
         Me.Controls.Add(Me.ITalk_ThemeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MinimumSize = New System.Drawing.Size(126, 39)
@@ -300,7 +331,6 @@ Partial Class frmmenu
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.ITalk_ThemeContainer1.ResumeLayout(False)
         Me.ITalk_ThemeContainer1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -320,5 +350,6 @@ Partial Class frmmenu
     Friend WithEvents ITalk_ControlBox1 As EIMCsUpdate.iTalk.iTalk_ControlBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents BunifuTileButton8 As Bunifu.Framework.UI.BunifuTileButton
+    Friend WithEvents BunifuTileButton9 As Bunifu.Framework.UI.BunifuTileButton
 End Class
