@@ -25,6 +25,7 @@ Partial Class members
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(members))
         Me.ITalk_TabControl1 = New EIMCsUpdate.iTalk.iTalk_TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.dgw = New System.Windows.Forms.DataGridView()
         Me.ITalk_Panel2 = New EIMCsUpdate.iTalk.iTalk_Panel()
         Me.txtoption = New Bunifu.Framework.UI.BunifuDropdown()
         Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
@@ -142,6 +143,7 @@ Partial Class members
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.ITalk_TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ITalk_Panel2.SuspendLayout()
         CType(Me.imgpix, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ITalk_Panel1.SuspendLayout()
@@ -177,6 +179,7 @@ Partial Class members
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.dgw)
         Me.TabPage1.Controls.Add(Me.ITalk_Panel2)
         Me.TabPage1.Controls.Add(Me.btnupload)
         Me.TabPage1.Controls.Add(Me.imgpix)
@@ -190,6 +193,15 @@ Partial Class members
         Me.TabPage1.Size = New System.Drawing.Size(1227, 690)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Page 1"
+        '
+        'dgw
+        '
+        Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgw.Location = New System.Drawing.Point(55, 147)
+        Me.dgw.Name = "dgw"
+        Me.dgw.Size = New System.Drawing.Size(91, 75)
+        Me.dgw.TabIndex = 180
+        Me.dgw.Visible = False
         '
         'ITalk_Panel2
         '
@@ -1935,6 +1947,7 @@ Partial Class members
         Me.ITalk_TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ITalk_Panel2.ResumeLayout(False)
         Me.ITalk_Panel2.PerformLayout()
         CType(Me.imgpix, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2074,5 +2087,6 @@ Partial Class members
     Friend WithEvents ITalk_Button_22 As EIMCsUpdate.iTalk.iTalk_Button_2
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents dgw As System.Windows.Forms.DataGridView
 
 End Class

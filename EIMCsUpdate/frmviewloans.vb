@@ -63,6 +63,26 @@ Public Class frmviewloans
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/NO"
+            .Columns(1).HeaderCell.Value = "FULL NAME"
+            .Columns(2).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(3).HeaderCell.Value = "EIMCS NUMBER"
+            .Columns(4).HeaderCell.Value = "FILE NUMBER"
+            .Columns(5).HeaderCell.Value = "LOAN TYPE"
+            .Columns(6).HeaderCell.Value = "LOAN DURATION"
+            .Columns(7).HeaderCell.Value = "MONTHLY PAYMENT"
+            .Columns(8).HeaderCell.Value = "AMOUNT COLLECTED"
+            .Columns(9).HeaderCell.Value = "PROFIT"
+            .Columns(10).HeaderCell.Value = "START DATE"
+            .Columns(11).HeaderCell.Value = "END DATE"
+            .Columns(12).HeaderCell.Value = "AMOUNT PAID"
+            .Columns(13).HeaderCell.Value = "PAYMENT DATE"
+            .Columns(14).HeaderCell.Value = "STATUS"
+            .Columns(15).HeaderCell.Value = "TREASURER NAME"
+
+        End With
         dgw.Refresh()
         source1.Filter = "ippsno = '" & x & "'"
         dgw.Refresh()
@@ -84,6 +104,26 @@ Public Class frmviewloans
             ds = New DataSet
             da.Fill(ds)
             dgw.DataSource = ds.Tables(0)
+            With dgw
+                .RowHeadersVisible = False
+                .Columns(0).HeaderCell.Value = "S/NO"
+                .Columns(1).HeaderCell.Value = "FULL NAME"
+                .Columns(2).HeaderCell.Value = "IPPS NUMBER"
+                .Columns(3).HeaderCell.Value = "EIMCS NUMBER"
+                .Columns(4).HeaderCell.Value = "FILE NUMBER"
+                .Columns(5).HeaderCell.Value = "LOAN TYPE"
+                .Columns(6).HeaderCell.Value = "LOAN DURATION"
+                .Columns(7).HeaderCell.Value = "MONTHLY PAYMENT"
+                .Columns(8).HeaderCell.Value = "AMOUNT COLLECTED"
+                .Columns(9).HeaderCell.Value = "PROFIT"
+                .Columns(10).HeaderCell.Value = "START DATE"
+                .Columns(11).HeaderCell.Value = "END DATE"
+                .Columns(12).HeaderCell.Value = "AMOUNT PAID"
+                .Columns(13).HeaderCell.Value = "PAYMENT DATE"
+                .Columns(14).HeaderCell.Value = "STATUS"
+                .Columns(15).HeaderCell.Value = "TREASURER NAME"
+
+            End With
             Myconnection.Close()
             dgw.Refresh()
 
@@ -113,6 +153,26 @@ Public Class frmviewloans
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/NO"
+            .Columns(1).HeaderCell.Value = "FULL NAME"
+            .Columns(2).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(3).HeaderCell.Value = "EIMCS NUMBER"
+            .Columns(4).HeaderCell.Value = "FILE NUMBER"
+            .Columns(5).HeaderCell.Value = "LOAN TYPE"
+            .Columns(6).HeaderCell.Value = "LOAN DURATION"
+            .Columns(7).HeaderCell.Value = "MONTHLY PAYMENT"
+            .Columns(8).HeaderCell.Value = "AMOUNT COLLECTED"
+            .Columns(9).HeaderCell.Value = "PROFIT"
+            .Columns(10).HeaderCell.Value = "START DATE"
+            .Columns(11).HeaderCell.Value = "END DATE"
+            .Columns(12).HeaderCell.Value = "AMOUNT PAID"
+            .Columns(13).HeaderCell.Value = "PAYMENT DATE"
+            .Columns(14).HeaderCell.Value = "STATUS"
+            .Columns(15).HeaderCell.Value = "TREASURER NAME"
+
+        End With
         dgw.Refresh()
         source1.Filter = "startdate >= '" & firstdate & "' and  startdate <= '" & seconddate & "'"
         dgw.Refresh()
@@ -293,4 +353,11 @@ Public Class frmviewloans
         End Try
     End Sub
 
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub dgw_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgw.CellContentClick
+
+    End Sub
 End Class

@@ -33,7 +33,7 @@ Public Class Loan
         txtinterestRate.Text = ""
         DateTimePicker3.Text = ""
         DateTimePicker4.Text = ""
-
+        txtmonth.Text = ""
         txtfname.Text = ""
         txtipps.Text = ""
         txtmd.Text = ""
@@ -427,7 +427,7 @@ Public Class Loan
             Myconnection.Open()
             Dim at, task As String
             at = Now
-            task = TextBox1.Text & "Granted a Loan of Type : " & txtm.SelectedValue & "to" & txtfname.Text
+            task = TextBox1.Text & "Granted a Loan of Type : " & txtm.SelectedValue & " to " & txtfname.Text
 
 
             Dim sql As String
@@ -532,10 +532,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtemer.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtemer.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
             Else
                 txtemer.Text = "0"
             End If
@@ -582,10 +582,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtstcl.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtstcl.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
             Else
                 txtstcl.Text = "0"
             End If
@@ -634,10 +634,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtltcl.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtltcl.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
 
                 Myconnection.Close()
@@ -694,10 +694,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtltms.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtltms.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
                 Myconnection.Close()
 
@@ -751,10 +751,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtstms.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtstms.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
 
 
@@ -809,10 +809,10 @@ Public Class Loan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                stms1.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                stms1.Text = "Paid : " & d & "  Balance : " & c & " :  O.M : " & pay
 
 
                 Myconnection.Close()
@@ -891,7 +891,7 @@ Public Class Loan
                 loanstms1()
                 loanstms11()
                 emergency()
-
+                totalsp()
 
 
 
@@ -967,7 +967,7 @@ Public Class Loan
                 loanstms11()
                 emergency()
 
-
+                totalsp()
 
             Else
                 MsgBox("No Matching record found in Database", vbCritical)
@@ -981,6 +981,26 @@ Public Class Loan
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Sub totalsp()
+
+        Myconnection.Open()
+        Dim selectQuery As String = "select * from special where ippsno = '" & txtsearch.Text & "'"
+        cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
+        ds = New DataSet
+        da.Fill(ds)
+        DataGridView2.DataSource = ds.Tables(0)
+        Dim b As Double
+        For Line As Integer = 0 To DataGridView2.RowCount - 1
+            b = (b + DataGridView2.Rows(Line).Cells(3).Value)
+
+
+        Next
+        txtsp.Text = b
+        Myconnection.Close()
+
     End Sub
     Sub searchloan2()
         Try
@@ -1040,7 +1060,7 @@ Public Class Loan
                 loanltcl()
                 loanstms1()
                 loanstms11()
-
+                totalsp()
                 emergency()
 
 
@@ -1097,28 +1117,36 @@ Public Class Loan
         If txtm.SelectedIndex = 0 Then 'LTCL
             txtmonth.Text = "24"
             txtinterestRate.Text = "0"
+            txtinterestRate.Enabled = False
 
         ElseIf txtm.SelectedIndex = 1 Then 'STCL
             txtmonth.Text = "6"
             txtinterestRate.Text = "0"
+            txtinterestRate.Enabled = False
         ElseIf txtm.SelectedIndex = 2 Then 'LMTS
             txtmonth.Text = "36"
             txtinterestRate.Text = "10"
+            txtinterestRate.Enabled = True
         ElseIf txtm.SelectedIndex = 3 Then 'STML i
             txtmonth.Text = "4"
             txtinterestRate.Text = "5"
+            txtinterestRate.Enabled = True
         ElseIf txtm.SelectedIndex = 4 Then 'STML ii
             txtmonth.Text = "12"
             txtinterestRate.Text = "10"
+            txtinterestRate.Enabled = True
         ElseIf txtm.SelectedIndex = 5 Then ' emergencyloan
             txtmonth.Text = "4"
             txtinterestRate.Text = "0"
+            txtinterestRate.Enabled = False
         ElseIf txtm.SelectedIndex = 6 Then ' saving
             txtmonth.Text = "1"
             txtinterestRate.Text = "0"
+            txtinterestRate.Enabled = True
         ElseIf txtm.SelectedIndex = 7 Then 'emergency savings
             txtmonth.Text = "1"
             txtinterestRate.Text = "0"
+            txtinterestRate.Enabled = True
 
         End If
     End Sub
@@ -1200,12 +1228,15 @@ Public Class Loan
             printreport.txtfno.Text = Me.txtfno.Text
             printreport.txtipps.Text = Me.txtipps.Text
             printreport.txtltcl.Text = Me.txtltcl.Text
+            printreport.txtremark.Text = Me.txtremark.Text
             printreport.txtltms.Text = Me.txtltms.Text
             printreport.txtmd.Text = Me.txtmd.Text
             printreport.txtsavgs.Text = Me.txtsavgs.Text
             printreport.txtshare.Text = Me.txtshare.Text
             printreport.txtstcl.Text = Me.txtstcl.Text
             printreport.txtstms.Text = Me.txtstms.Text
+            printreport.stms1.Text = Me.stms1.Text
+            printreport.txtsp.Text = Me.txtsp.Text
             printreport.loanpassport.Image = Me.loanpassport.Image
             printreport.loansign.Image = Me.loansign.Image
             logss()
@@ -1248,4 +1279,13 @@ Public Class Loan
 
     
 
+    Private Sub DataGridView2_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
+    Private Sub BunifuCustomLabel6_Click(sender As System.Object, e As System.EventArgs) Handles BunifuCustomLabel6.Click
+
+    End Sub
+    Private Sub ITalk_Panel1_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Panel1.Click
+
+    End Sub
 End Class

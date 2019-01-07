@@ -14,6 +14,8 @@ Public Class clearloan
     Dim firstdate As Date
     Dim seconddate As Date
     Dim msg, msg2, msg3 As Double
+    Dim dy, dx As Double
+
 
     Dim Myconnection As New MySqlConnection With {.ConnectionString = "server = localhost; userid = root ; password =; database = eimcs ;"}
     Dim use, x As String
@@ -124,10 +126,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtemer.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtemer.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
             Else
                 txtemer.Text = "0"
             End If
@@ -174,10 +176,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtstcl.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtstcl.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
             Else
                 txtstcl.Text = "0"
             End If
@@ -226,10 +228,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtltcl.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtltcl.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
 
                 Myconnection.Close()
@@ -286,10 +288,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtltms.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtltms.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
                 Myconnection.Close()
 
@@ -343,10 +345,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                txtstms.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                txtstms.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
 
 
@@ -401,10 +403,10 @@ Public Class clearloan
                 d = reader.Item("amountpaid").ToString
 
                 c = a * pay
-                p = c - d
+
 
                 x = "month(s) remaining"
-                stms1.Text = "Paid : " & d & " Balance: " & p & " :      O.M:" & pay
+                stms1.Text = "Paid : " & d & " Balance: " & c & " :      O.M:" & pay
 
 
                 Myconnection.Close()
@@ -420,7 +422,25 @@ Public Class clearloan
     End Sub
 
 
+    Sub totalsp()
 
+        Myconnection.Open()
+        Dim selectQuery As String = "select * from special where ippsno = '" & txtsearch.Text & "'"
+        cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
+        ds = New DataSet
+        da.Fill(ds)
+        DataGridView2.DataSource = ds.Tables(0)
+        Dim b As Double
+        For Line As Integer = 0 To DataGridView2.RowCount - 1
+            b = (b + DataGridView2.Rows(Line).Cells(3).Value)
+
+
+        Next
+        txtsp.Text = b
+        Myconnection.Close()
+
+    End Sub
 
 
 
@@ -483,6 +503,8 @@ Public Class clearloan
                 loanstms1()
                 loanstms11()
                 emergency()
+                totalsp()
+
 
 
 
@@ -553,6 +575,7 @@ Public Class clearloan
                 totalshare()
                 totalsavings()
                 loanstcl()
+                totalsp()
                 loanltms()
                 loanltcl()
                 loanstms1()
@@ -632,7 +655,7 @@ Public Class clearloan
                 loanltcl()
                 loanstms1()
                 loanstms11()
-
+                totalsp()
                 emergency()
 
 
@@ -694,315 +717,6 @@ Public Class clearloan
     End Sub
 
 
-    Sub clearltms()
-        Try
-            Myconnection.Close()
-            Myconnection.Open()
-            Dim reader As MySqlDataReader
-            Dim command As MySqlCommand = New MySqlCommand
-            command.Connection = Myconnection
-            Dim s, type1, type2, type3, type4, type5 As String
-
-
-            type1 = "Long Term Cash Loan LTCL"
-            type2 = "Short Term Cash Loan STCL"
-            type3 = "Long Term Material Sales LMTS"
-            type4 = "4 months Short Term Material Sales STMS"
-            type5 = "12 months Short Term Material Sales STMS"
-
-
-
-            '----retrieve student's particulars
-            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type3 & "'"
-
-            reader = command.ExecuteReader(CommandBehavior.CloseConnection)
-
-            Dim count As Integer
-            count = 0
-
-            While reader.Read
-                count = count + 1
-            End While
-            If count > 0 Then
-                Dim a, c, p, d As String
-
-                Dim pay As String
-                Dim x As String
-
-                Dim amount, balance, m, i, dates As String
-
-
-
-
-                pay = reader.Item("paymentduration").ToString
-                a = reader.Item("amountpayble").ToString
-                d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
-
-
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
-
-                balance = c - amount
-                i = m - a
-                Myconnection.Close()
-
-                Dim status As String
-                If amount >= c Then
-                    status = "paid"
-                    Try
-
-                        Myconnection.Close()
-                        Myconnection.Open()
-
-                        Dim sql As String
-                        dates = Now
-
-
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type3 & "'"
-
-                        Dim cmdx As New MySqlCommand(sql, Myconnection)
-
-                        MsgBox("Trasaction Successfull ", vbInformation)
-                        cmdx.ExecuteNonQuery()
-
-                        Myconnection.Close()
-                        logs()
-                        totalshare()
-                        totalsavings()
-                        loanstcl()
-                        loanltms()
-                        loanltcl()
-                        loanstms1()
-                        loanstms11()
-                        emergency()
-
-                        loanltms()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-
-                    End Try
-
-                Else
-                    status = "unpaid"
-                    Try
-
-                        Myconnection.Close()
-                        Myconnection.Open()
-
-                        Dim sql As String
-                        dates = Now
-
-
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type3 & "'"
-
-                        Dim cmdx As New MySqlCommand(sql, Myconnection)
-
-                        MsgBox("Trasaction Successfull ", vbInformation)
-                        cmdx.ExecuteNonQuery()
-
-                        Myconnection.Close()
-                        logs()
-                        totalshare()
-                        totalsavings()
-                        loanstcl()
-                        loanltms()
-                        loanltcl()
-                        loanstms1()
-                        loanstms11()
-                        emergency()
-
-                        loanltms()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-
-                    End Try
-                End If
-
-            Else
-                MsgBox("No user Inoformation", vbInformation)
-            End If
-
-
-        Catch ex As Exception
-
-        End Try
-
-
-
-
-    End Sub
-
-    Sub logs()
-        Try
-            Myconnection.Close()
-            Myconnection.Open()
-            Dim at, task As String
-            at = Now
-            task = TextBox1.Text & "cleared Loan  " & txtm.SelectedValue & "for" & txtfname.Text
-
-
-            Dim sql As String
-
-
-
-            sql = "insert into logs (fullname,Task,activity_time)" _
-                    & "VALUES(@fullname,@task,@activitytime)"
-
-            Dim cmdx As New MySqlCommand(sql, Myconnection)
-            cmdx.Parameters.AddWithValue("@fullname", TextBox1.Text)
-            cmdx.Parameters.AddWithValue("@task", task)
-            cmdx.Parameters.AddWithValue("@activitytime", at)
-
-            cmdx.ExecuteNonQuery()
-
-            Myconnection.Close()
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-
-        End Try
-
-
-
-    End Sub
-    Sub clearltcl()
-        Try
-            Myconnection.Close()
-            Myconnection.Open()
-            Dim reader As MySqlDataReader
-            Dim command As MySqlCommand = New MySqlCommand
-            command.Connection = Myconnection
-            Dim s, type1, type2, type3, type4, type5 As String
-
-
-            type1 = "Long Term Cash Loan LTCL"
-            type2 = "Short Term Cash Loan STCL"
-            type3 = "Long Term Material Sales LMTS"
-            type4 = "4 months Short Term Material Sales STMS"
-            type5 = "12 months Short Term Material Sales STMS"
-
-
-
-            '----retrieve student's particulars
-            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type1 & "'"
-
-            reader = command.ExecuteReader(CommandBehavior.CloseConnection)
-
-            Dim count As Integer
-            count = 0
-
-            While reader.Read
-                count = count + 1
-            End While
-            If count > 0 Then
-                Dim a, c, p, d As String
-
-                Dim pay As String
-                Dim x As String
-
-                Dim amount, balance, m, i, dates As String
-
-
-
-
-                pay = reader.Item("paymentduration").ToString
-                a = reader.Item("amountpayble").ToString
-                d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
-
-
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
-
-                balance = c - amount
-                i = m - a
-                Myconnection.Close()
-                Dim status As String
-                If amount >= c Then
-                    status = "paid"
-                    Try
-
-                        Myconnection.Close()
-                        Myconnection.Open()
-
-                        Dim sql As String
-                        dates = Now
-
-
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type1 & "'"
-
-                        Dim cmdx As New MySqlCommand(sql, Myconnection)
-
-                        MsgBox("Trasaction Successfull ", vbInformation)
-                        cmdx.ExecuteNonQuery()
-
-                        Myconnection.Close()
-                        logs()
-                        totalshare()
-                        totalsavings()
-                        loanstcl()
-                        loanltms()
-                        loanltcl()
-                        loanstms1()
-                        loanstms11()
-                        emergency()
-
-                        loanltms()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-
-                    End Try
-
-                Else
-                    status = "unpaid"
-                    Try
-
-                        Myconnection.Close()
-                        Myconnection.Open()
-
-                        Dim sql As String
-                        dates = Now
-
-
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type1 & "'"
-
-                        Dim cmdx As New MySqlCommand(sql, Myconnection)
-
-                        MsgBox("Trasaction Successfull ", vbInformation)
-                        cmdx.ExecuteNonQuery()
-
-                        Myconnection.Close()
-                        logs()
-                        totalshare()
-                        totalsavings()
-                        loanstcl()
-                        loanltms()
-                        loanltcl()
-                        loanstms1()
-                        loanstms11()
-                        emergency()
-
-                        loanltms()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-
-                    End Try
-                End If
-
-            Else
-                MsgBox("No user Inoformation", vbInformation)
-            End If
-
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
     Sub clearstcl()
         Try
             Myconnection.Close()
@@ -1010,15 +724,15 @@ Public Class clearloan
             Dim reader As MySqlDataReader
             Dim command As MySqlCommand = New MySqlCommand
             command.Connection = Myconnection
-            Dim s, type1, type2, type3, type4, type5 As String
+            Dim s, type1, type2, type3, type4, type5, type6 As String
 
 
             type1 = "Long Term Cash Loan LTCL"
             type2 = "Short Term Cash Loan STCL"
             type3 = "Long Term Material Sales LMTS"
-            type4 = "4 months Short Term Material Sales STMS"
-            type5 = "12 months Short Term Material Sales STMS"
-
+            type4 = "Food Items"
+            type5 = "Non Food Items"
+            type6 = "Emergency Loan"
 
 
             '----retrieve student's particulars
@@ -1046,19 +760,21 @@ Public Class clearloan
                 pay = reader.Item("paymentduration").ToString
                 a = reader.Item("amountpayble").ToString
                 d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
+                'amount = txtamount.Text
 
 
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
 
-                balance = c - amount
-                i = m - a
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
                 Myconnection.Close()
                 Dim status As String
-                If amount >= c Then
+                If dy >= c Then
                     status = "paid"
                     Try
 
@@ -1104,7 +820,319 @@ Public Class clearloan
                         dates = Now
 
 
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type2 & "'"
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type2 & "'"
+
+                        Dim cmdx As New MySqlCommand(sql, Myconnection)
+
+                        MsgBox("Trasaction Successfull ", vbInformation)
+                        cmdx.ExecuteNonQuery()
+
+                        Myconnection.Close()
+                        logs()
+                        totalshare()
+                        totalsavings()
+                        loanstcl()
+                        loanltms()
+                        loanltcl()
+                        loanstms1()
+                        loanstms11()
+                        emergency()
+
+                        loanltms()
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+
+                    End Try
+                End If
+
+            Else
+                MsgBox("No user Inoformation", vbInformation)
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+    Sub logs()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = TextBox1.Text & "cleared " & txtm.SelectedValue & "for" & txtfname.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", TextBox1.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+            Myconnection.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+
+
+    End Sub
+    Sub clearltcl()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim reader As MySqlDataReader
+            Dim command As MySqlCommand = New MySqlCommand
+            command.Connection = Myconnection
+            Dim s, type1, type2, type3, type4, type5, type6 As String
+
+
+            type1 = "Long Term Cash Loan LTCL"
+            type2 = "Short Term Cash Loan STCL"
+            type3 = "Long Term Material Sales LMTS"
+            type4 = "Food Items"
+            type5 = "Non Food Items"
+            type6 = "Emergency Loan"
+
+
+            '----retrieve student's particulars
+            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type1 & "'"
+
+            reader = command.ExecuteReader(CommandBehavior.CloseConnection)
+
+            Dim count As Integer
+            count = 0
+
+            While reader.Read
+                count = count + 1
+            End While
+            If count > 0 Then
+                Dim a, c, p, d As String
+
+                Dim pay As String
+                Dim x As String
+
+                Dim amount, balance, m, i, dates As String
+
+
+
+
+                pay = reader.Item("paymentduration").ToString
+                a = reader.Item("amountpayble").ToString
+                d = reader.Item("amountpaid").ToString
+                'amount = txtamount.Text
+
+
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
+
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
+                Myconnection.Close()
+                Dim status As String
+                If dy >= c Then
+                    status = "paid"
+                    Try
+
+                        Myconnection.Close()
+                        Myconnection.Open()
+
+                        Dim sql As String
+                        dates = Now
+
+
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type1 & "'"
+
+                        Dim cmdx As New MySqlCommand(sql, Myconnection)
+
+                        MsgBox("Trasaction Successfull ", vbInformation)
+                        cmdx.ExecuteNonQuery()
+
+                        Myconnection.Close()
+                        logs()
+                        totalshare()
+                        totalsavings()
+                        loanstcl()
+                        loanltms()
+                        loanltcl()
+                        loanstms1()
+                        loanstms11()
+                        emergency()
+
+                        loanltms()
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+
+                    End Try
+
+                Else
+                    status = "unpaid"
+                    Try
+
+                        Myconnection.Close()
+                        Myconnection.Open()
+
+                        Dim sql As String
+                        dates = Now
+
+
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type1 & "'"
+
+                        Dim cmdx As New MySqlCommand(sql, Myconnection)
+
+                        MsgBox("Trasaction Successfull ", vbInformation)
+                        cmdx.ExecuteNonQuery()
+
+                        Myconnection.Close()
+                        logs()
+                        totalshare()
+                        totalsavings()
+                        loanstcl()
+                        loanltms()
+                        loanltcl()
+                        loanstms1()
+                        loanstms11()
+                        emergency()
+
+                        loanltms()
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+
+                    End Try
+                End If
+
+            Else
+                MsgBox("No user Inoformation", vbInformation)
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+    Sub clearltms()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim reader As MySqlDataReader
+            Dim command As MySqlCommand = New MySqlCommand
+            command.Connection = Myconnection
+            Dim s, type1, type2, type3, type4, type5, type6 As String
+
+
+            type1 = "Long Term Cash Loan LTCL"
+            type2 = "Short Term Cash Loan STCL"
+            type3 = "Long Term Material Sales LMTS"
+            type4 = "Food Items"
+            type5 = "Non Food Items"
+            type6 = "Emergency Loan"
+
+
+            '----retrieve student's particulars
+            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type3 & "'"
+
+            reader = command.ExecuteReader(CommandBehavior.CloseConnection)
+
+            Dim count As Integer
+            count = 0
+
+            While reader.Read
+                count = count + 1
+            End While
+            If count > 0 Then
+                Dim a, c, p, d As String
+
+                Dim pay As String
+                Dim x As String
+
+                Dim amount, balance, m, i, dates As String
+
+
+
+
+                pay = reader.Item("paymentduration").ToString
+                a = reader.Item("amountpayble").ToString
+                d = reader.Item("amountpaid").ToString
+                'amount = txtamount.Text
+
+
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
+
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
+                Myconnection.Close()
+                Dim status As String
+                If dy >= c Then
+                    status = "paid"
+                    Try
+
+                        Myconnection.Close()
+                        Myconnection.Open()
+
+                        Dim sql As String
+                        dates = Now
+
+
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type3 & "'"
+
+                        Dim cmdx As New MySqlCommand(sql, Myconnection)
+
+                        MsgBox("Trasaction Successfull ", vbInformation)
+                        cmdx.ExecuteNonQuery()
+
+                        Myconnection.Close()
+                        logs()
+                        totalshare()
+                        totalsavings()
+                        loanstcl()
+                        loanltms()
+                        loanltcl()
+                        loanstms1()
+                        loanstms11()
+                        emergency()
+
+                        loanltms()
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+
+                    End Try
+
+                Else
+                    status = "unpaid"
+                    Try
+
+                        Myconnection.Close()
+                        Myconnection.Open()
+
+                        Dim sql As String
+                        dates = Now
+
+
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type3 & "'"
 
                         Dim cmdx As New MySqlCommand(sql, Myconnection)
 
@@ -1139,6 +1167,7 @@ Public Class clearloan
         End Try
     End Sub
 
+
     Sub clearstms1()
         Try
             Myconnection.Close()
@@ -1146,17 +1175,16 @@ Public Class clearloan
             Dim reader As MySqlDataReader
             Dim command As MySqlCommand = New MySqlCommand
             command.Connection = Myconnection
-            Dim s, type1, type2, type3, type4, type5 As String
+            Dim s, type1, type2, type3, type4, type5, type6 As String
 
 
             type1 = "Long Term Cash Loan LTCL"
             type2 = "Short Term Cash Loan STCL"
             type3 = "Long Term Material Sales LMTS"
-            type4 = " Food"
+            type4 = "Food Items"
             type5 = "Non Food Items"
-            Dim type6 As String
             type6 = "Emergency Loan"
-          
+
 
             '----retrieve student's particulars
             command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type4 & "'"
@@ -1183,19 +1211,21 @@ Public Class clearloan
                 pay = reader.Item("paymentduration").ToString
                 a = reader.Item("amountpayble").ToString
                 d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
+                'amount = txtamount.Text
 
 
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
 
-                balance = c - amount
-                i = m - a
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
                 Myconnection.Close()
                 Dim status As String
-                If amount >= c Then
+                If dy >= c Then
                     status = "paid"
                     Try
 
@@ -1241,7 +1271,7 @@ Public Class clearloan
                         dates = Now
 
 
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type4 & "'"
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type4 & "'"
 
                         Dim cmdx As New MySqlCommand(sql, Myconnection)
 
@@ -1283,16 +1313,15 @@ Public Class clearloan
             Dim reader As MySqlDataReader
             Dim command As MySqlCommand = New MySqlCommand
             command.Connection = Myconnection
-            Dim s, type1, type2, type3, type4, type5 As String
+            Dim s, type1, type2, type3, type4, type5, type6 As String
+
 
             type1 = "Long Term Cash Loan LTCL"
             type2 = "Short Term Cash Loan STCL"
             type3 = "Long Term Material Sales LMTS"
-            type4 = " Food"
+            type4 = "Food Items"
             type5 = "Non Food Items"
-            Dim type6 As String
             type6 = "Emergency Loan"
-
 
 
             '----retrieve student's particulars
@@ -1320,19 +1349,21 @@ Public Class clearloan
                 pay = reader.Item("paymentduration").ToString
                 a = reader.Item("amountpayble").ToString
                 d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
+                'amount = txtamount.Text
 
 
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
 
-                balance = c - amount
-                i = m - a
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
                 Myconnection.Close()
                 Dim status As String
-                If amount >= c Then
+                If dy >= c Then
                     status = "paid"
                     Try
 
@@ -1378,7 +1409,7 @@ Public Class clearloan
                         dates = Now
 
 
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type5 & "'"
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type5 & "'"
 
                         Dim cmdx As New MySqlCommand(sql, Myconnection)
 
@@ -1411,7 +1442,7 @@ Public Class clearloan
         Catch ex As Exception
 
         End Try
-               
+
     End Sub
 
     Sub clearemergency()
@@ -1427,13 +1458,13 @@ Public Class clearloan
             type1 = "Long Term Cash Loan LTCL"
             type2 = "Short Term Cash Loan STCL"
             type3 = "Long Term Material Sales LMTS"
-            type4 = " Food"
+            type4 = "Food Items"
             type5 = "Non Food Items"
             type6 = "Emergency Loan"
 
 
             '----retrieve student's particulars
-            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type1 & "'"
+            command.CommandText = "SELECT * FROM loan WHERE ippsno = '" & txtsearch.Text & "' and loantype = '" & type6 & "'"
 
             reader = command.ExecuteReader(CommandBehavior.CloseConnection)
 
@@ -1457,19 +1488,21 @@ Public Class clearloan
                 pay = reader.Item("paymentduration").ToString
                 a = reader.Item("amountpayble").ToString
                 d = reader.Item("amountpaid").ToString
-                amount = txtamount.Text
+                'amount = txtamount.Text
 
 
-                c = a * pay
-                p = c - d
-                ' this will calculate how many months the price can cover .
-                m = (amount / a)
+                'calculate the no of amount person is paying
+                dy = Val(txtmonth.Text) * a
+                'calculate the remaining month
+                dx = pay - Val(txtmonth.Text)
 
-                balance = c - amount
-                i = m - a
+                txtamount.Text = dy + d
+                duration = dx
+                c = pay * a
+
                 Myconnection.Close()
                 Dim status As String
-                If amount >= c Then
+                If dy >= c Then
                     status = "paid"
                     Try
 
@@ -1515,7 +1548,7 @@ Public Class clearloan
                         dates = Now
 
 
-                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type6 & "'"
+                        sql = "UPDATE loan set amountpaid = '" & txtamount.Text & "'," & " datepaid = '" & dates & "'," & " status = '" & status & "'," & " paymentduration = '" & duration & "' where ippsno = '" & txtipps.Text & "' and loantype = '" & type6 & "'"
 
                         Dim cmdx As New MySqlCommand(sql, Myconnection)
 
@@ -1551,12 +1584,6 @@ Public Class clearloan
     End Sub
 
 
-    
-
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
-
-    End Sub
-
     Private Sub btnprint_Click(sender As System.Object, e As System.EventArgs) Handles btnprint.Click
         If txtipps.Text = "" Then
             MsgBox("Please Perform a search query and try printing again", vbCritical)
@@ -1572,10 +1599,13 @@ Public Class clearloan
             printreport.txtsavgs.Text = Me.txtsavgs.Text
             printreport.txtshare.Text = Me.txtshare.Text
             printreport.txtstcl.Text = Me.txtstcl.Text
+            printreport.txtsp.Text = Me.txtsp.Text
             printreport.txtstms.Text = Me.txtstms.Text
             printreport.stms1.Text = Me.stms1.Text
+            printreport.txtremark.Text = Me.txtremark.Text
             printreport.loanpassport.Image = Me.loanpassport.Image
             printreport.loansign.Image = Me.loansign.Image
+
             logged()
             Me.Hide()
             printreport.Show()
@@ -1584,7 +1614,7 @@ Public Class clearloan
 
     End Sub
 
-   
+
 
     Sub logged()
         Try

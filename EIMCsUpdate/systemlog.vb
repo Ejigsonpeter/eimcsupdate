@@ -56,7 +56,6 @@ Public Class systemlog
 
     End Sub
     Sub vouncher()
-
         firstdate = CDate(dtp1.Text)
         seconddate = CDate(dtp2.Text)
         msg2 = DateDiff(DateInterval.Day, firstdate, seconddate)
@@ -240,4 +239,40 @@ Public Class systemlog
         End Try
     End Sub
 
+    Private Sub ITalk_Button_22_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_22.Click
+        Try
+
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            ' task = "Printed System Logs"
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", Label2.Text)
+            cmdx.Parameters.AddWithValue("@task", txtlog.Text)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+            MsgBox("Log Taken Successfully", vbInformation)
+
+            txtlog.Text = ""
+
+
+            grid()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+    End Sub
 End Class

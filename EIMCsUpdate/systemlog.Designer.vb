@@ -36,6 +36,9 @@ Partial Class systemlog
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnback = New EIMCsUpdate.iTalk.iTalk_Button_2()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.ITalk_Button_22 = New EIMCsUpdate.iTalk.iTalk_Button_2()
+        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.txtlog = New System.Windows.Forms.RichTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ITalk_Panel2.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,7 +177,7 @@ Partial Class systemlog
         Me.dgw.GridColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.dgw.Location = New System.Drawing.Point(18, 176)
         Me.dgw.Name = "dgw"
-        Me.dgw.Size = New System.Drawing.Size(1211, 396)
+        Me.dgw.Size = New System.Drawing.Size(847, 396)
         Me.dgw.TabIndex = 232
         '
         'Label2
@@ -217,11 +220,48 @@ Partial Class systemlog
         Me.BunifuCustomLabel1.TabIndex = 228
         Me.BunifuCustomLabel1.Text = "SYSTEM LOGS"
         '
+        'ITalk_Button_22
+        '
+        Me.ITalk_Button_22.BackColor = System.Drawing.Color.White
+        Me.ITalk_Button_22.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ITalk_Button_22.ForeColor = System.Drawing.Color.White
+        Me.ITalk_Button_22.Image = Nothing
+        Me.ITalk_Button_22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ITalk_Button_22.Location = New System.Drawing.Point(1029, 427)
+        Me.ITalk_Button_22.Name = "ITalk_Button_22"
+        Me.ITalk_Button_22.Size = New System.Drawing.Size(75, 29)
+        Me.ITalk_Button_22.TabIndex = 236
+        Me.ITalk_Button_22.Text = "Add"
+        Me.ITalk_Button_22.TextAlignment = System.Drawing.StringAlignment.Center
+        '
+        'BunifuCustomLabel2
+        '
+        Me.BunifuCustomLabel2.AutoSize = True
+        Me.BunifuCustomLabel2.BackColor = System.Drawing.Color.White
+        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel2.ForeColor = System.Drawing.Color.Black
+        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(904, 206)
+        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
+        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(119, 17)
+        Me.BunifuCustomLabel2.TabIndex = 237
+        Me.BunifuCustomLabel2.Text = "Add Activity Logs"
+        '
+        'txtlog
+        '
+        Me.txtlog.Location = New System.Drawing.Point(900, 226)
+        Me.txtlog.Name = "txtlog"
+        Me.txtlog.Size = New System.Drawing.Size(329, 172)
+        Me.txtlog.TabIndex = 238
+        Me.txtlog.Text = ""
+        '
         'systemlog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1276, 645)
+        Me.Controls.Add(Me.txtlog)
+        Me.Controls.Add(Me.BunifuCustomLabel2)
+        Me.Controls.Add(Me.ITalk_Button_22)
         Me.Controls.Add(Me.ITalk_Button_25)
         Me.Controls.Add(Me.ITalk_Button_21)
         Me.Controls.Add(Me.ITalk_Panel2)
@@ -255,4 +295,7 @@ Partial Class systemlog
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnback As EIMCsUpdate.iTalk.iTalk_Button_2
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents ITalk_Button_22 As EIMCsUpdate.iTalk.iTalk_Button_2
+    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents txtlog As System.Windows.Forms.RichTextBox
 End Class

@@ -32,7 +32,7 @@ Partial Class S
         '
         Me.pg1.animated = False
         Me.pg1.animationIterval = 5
-        Me.pg1.animationSpeed = 300
+        Me.pg1.animationSpeed = 100
         Me.pg1.BackColor = System.Drawing.Color.Transparent
         Me.pg1.BackgroundImage = CType(resources.GetObject("pg1.BackgroundImage"), System.Drawing.Image)
         Me.pg1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!)

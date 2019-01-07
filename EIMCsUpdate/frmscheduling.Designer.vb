@@ -29,6 +29,7 @@ Partial Class frmscheduling
         Me.dgw = New System.Windows.Forms.DataGridView()
         Me.ITalk_Button_21 = New EIMCsUpdate.iTalk.iTalk_Button_2()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ITalk_Button_24 = New EIMCsUpdate.iTalk.iTalk_Button_2()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -75,7 +76,7 @@ Partial Class frmscheduling
         Me.ITalk_Button_22.ForeColor = System.Drawing.Color.White
         Me.ITalk_Button_22.Image = Nothing
         Me.ITalk_Button_22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ITalk_Button_22.Location = New System.Drawing.Point(515, 576)
+        Me.ITalk_Button_22.Location = New System.Drawing.Point(552, 576)
         Me.ITalk_Button_22.Name = "ITalk_Button_22"
         Me.ITalk_Button_22.Size = New System.Drawing.Size(188, 41)
         Me.ITalk_Button_22.TabIndex = 216
@@ -102,7 +103,7 @@ Partial Class frmscheduling
         Me.ITalk_Button_21.ForeColor = System.Drawing.Color.White
         Me.ITalk_Button_21.Image = Nothing
         Me.ITalk_Button_21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ITalk_Button_21.Location = New System.Drawing.Point(726, 576)
+        Me.ITalk_Button_21.Location = New System.Drawing.Point(763, 576)
         Me.ITalk_Button_21.Name = "ITalk_Button_21"
         Me.ITalk_Button_21.Size = New System.Drawing.Size(188, 41)
         Me.ITalk_Button_21.TabIndex = 219
@@ -112,17 +113,32 @@ Partial Class frmscheduling
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(932, 583)
+        Me.Label2.Location = New System.Drawing.Point(1213, 623)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 220
         Me.Label2.Text = "Label1"
+        '
+        'ITalk_Button_24
+        '
+        Me.ITalk_Button_24.BackColor = System.Drawing.Color.White
+        Me.ITalk_Button_24.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ITalk_Button_24.ForeColor = System.Drawing.Color.White
+        Me.ITalk_Button_24.Image = Nothing
+        Me.ITalk_Button_24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ITalk_Button_24.Location = New System.Drawing.Point(339, 576)
+        Me.ITalk_Button_24.Name = "ITalk_Button_24"
+        Me.ITalk_Button_24.Size = New System.Drawing.Size(188, 41)
+        Me.ITalk_Button_24.TabIndex = 221
+        Me.ITalk_Button_24.Text = "Refresh"
+        Me.ITalk_Button_24.TextAlignment = System.Drawing.StringAlignment.Center
         '
         'frmscheduling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 645)
+        Me.Controls.Add(Me.ITalk_Button_24)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ITalk_Button_21)
         Me.Controls.Add(Me.dgw)
@@ -146,4 +162,5 @@ Partial Class frmscheduling
     Friend WithEvents dgw As System.Windows.Forms.DataGridView
     Friend WithEvents ITalk_Button_21 As EIMCsUpdate.iTalk.iTalk_Button_2
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ITalk_Button_24 As EIMCsUpdate.iTalk.iTalk_Button_2
 End Class

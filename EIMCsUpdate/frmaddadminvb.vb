@@ -18,55 +18,55 @@ Public Class frmaddadminvb
             MsgBox("Enter user ID", vbCritical)
         ElseIf txtpass.Text = "" Then
             MsgBox("Enter user pass ", vbCritical)
-        ElseIf txtnpassword.Text Then
+        ElseIf txtnpassword.Text = "" Then
             MsgBox("Enter new Password", vbCritical)
         Else
-            Try
+            'Try
+            Myconnection.Open()
+            Dim query As String
+            Dim reader As MySqlDataReader
+
+            query = "Select * from users where userid = '" & txtid.Text & "' and password = '" & txtpass.Text & "'"
+            cmd = New MySqlCommand(query, Myconnection)
+            reader = cmd.ExecuteReader
+            Dim count As Integer
+            count = 0
+            While reader.Read
+                count = count + 1
+            End While
+            If count > 0 Then
+
+                Myconnection.Close()
                 Myconnection.Open()
-                Dim query As String
-                Dim reader As MySqlDataReader
 
-                query = "Select * from users where userid = '" & txtid.Text & "' and password = '" & txtpass.Text & "'"
-                cmd = New MySqlCommand(query, Myconnection)
-                reader = cmd.ExecuteReader
-                Dim count As Integer
-                count = 0
-                While reader.Read
-                    count = count + 1
-                End While
-                If count > 0 Then
 
-                    Myconnection.Close()
-                    Myconnection.Open()
-
-                    
-                    Dim sql As String
+                Dim sql As String
 
 
 
-                    sql = "UPDATE users set password = '" & txtpass.Text & "' where userid = " & txtid.Text
+                sql = "UPDATE users set password = '" & txtnpassword.Text & "' where userid = '" & txtid.Text & "'"
 
-                    Dim cmdx As New MySqlCommand(sql, Myconnection)
+                Dim cmdx As New MySqlCommand(sql, Myconnection)
 
-                    MsgBox("Password Reset Successfull ", vbInformation)
-                    cmdx.ExecuteNonQuery()
+                MsgBox("Password Reset Successfull ", vbInformation)
+                cmdx.ExecuteNonQuery()
 
-                    Myconnection.Close()
-                    log1()
-                    txtid.Text = ""
-                    txtpass.Text = ""
-                    txtnpassword.Text = ""
-
-
-                Else
-                    MsgBox("Incorrect Information", vbCritical)
-                   
-                End If
+                Myconnection.Close()
+                log1()
+                txtid.Text = ""
+                txtpass.Text = ""
+                txtnpassword.Text = ""
 
 
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+            Else
+                MsgBox("Incorrect Information", vbCritical)
+
+            End If
+
+
+            ' Catch ex As Exception
+            'MsgBox(ex.Message)
+            'End Try
         End If
     End Sub
 
@@ -88,14 +88,14 @@ Public Class frmaddadminvb
                 Dim sql As String
 
 
-
-                sql = "insert into users (userid,password)" _
-                        & "VALUES(@username,@pass)"
+                sql = "insert into users (fullname,userid,password,status)" _
+                        & "VALUES(@fullname,@username,@pass,@status)"
 
                 Dim cmdx As New MySqlCommand(sql, Myconnection)
                 cmdx.Parameters.AddWithValue("@username", txtusername.Text)
-                cmdx.Parameters.AddWithValue("@pass", txtpassword)
-
+                cmdx.Parameters.AddWithValue("@pass", txtpassword.Text)
+                cmdx.Parameters.AddWithValue("@fullname", txtfname.Text)
+                cmdx.Parameters.AddWithValue("@status", "active")
 
                 cmdx.ExecuteNonQuery()
                 MsgBox("User Added Successfully ", vbInformation)
@@ -103,6 +103,8 @@ Public Class frmaddadminvb
                 txtcpassword.Text = ""
                 txtnpassword.Text = ""
                 txtusername.Text = ""
+                txtpassword.Text = ""
+                txtfname.Text = ""
 
 
             Catch ex As Exception

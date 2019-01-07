@@ -104,6 +104,7 @@ Public Class Signin
             frmmenu.Show()
         Else
             Try
+                Myconnection.Close()
                 Myconnection.Open()
                 Dim query As String
                 Dim reader As MySqlDataReader
@@ -123,9 +124,9 @@ Public Class Signin
 
                     x = reader.Item("fullname").ToString
                     frmmenu.Label2.Text = x
-                   
 
-                    
+
+
 
 
                     fn = x
@@ -134,16 +135,18 @@ Public Class Signin
                     frmmenu.Show()
                     logs()
 
-
+                    Myconnection.Close()
                 Else
                     MsgBox("Access Denied! Incorret Login Details", vbCritical)
                     logfailed()
                     clear()
+                    Myconnection.Close()
                 End If
 
 
             Catch ex As Exception
                 MsgBox(ex.Message)
+                Myconnection.Close()
             End Try
         End If
     End Sub
@@ -154,4 +157,7 @@ Public Class Signin
     End Sub
 
     
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+
+    End Sub
 End Class

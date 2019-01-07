@@ -30,11 +30,36 @@ Public Class frmschedule
             Dim view1 As New DataView(tables(0))
             source1.DataSource = view1
             dgw.DataSource = view1
+            With dgw
+                .RowHeadersVisible = False
+                .Columns(0).HeaderCell.Value = "S/NO"
+                .Columns(1).HeaderCell.Value = "FULL NAME"
+                .Columns(2).HeaderCell.Value = "IPPS NUMBER"
+                .Columns(3).HeaderCell.Value = "EIMCS NUMBER"
+                .Columns(4).HeaderCell.Value = "FILE NUMBER"
+                .Columns(5).HeaderCell.Value = "LOAN TYPE"
+                .Columns(6).HeaderCell.Value = "LOAN DURATION"
+                .Columns(7).HeaderCell.Value = "MONTHLY PAYMENT"
+                .Columns(8).HeaderCell.Value = "AMOUNT COLLECTED"
+                .Columns(9).HeaderCell.Value = "PROFIT"
+                .Columns(10).HeaderCell.Value = "START DATE"
+                .Columns(11).HeaderCell.Value = "END DATE"
+                .Columns(12).HeaderCell.Value = "AMOUNT PAID"
+                .Columns(13).HeaderCell.Value = "PAYMENT DATE"
+                .Columns(14).HeaderCell.Value = "STATUS"
+                .Columns(15).HeaderCell.Value = "TREASURER NAME"
+
+            End With
+
             dgw.Refresh()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-       
+
+        'dgw.DataSource = ds.Tables("loan")
+        
+
+
     End Sub
     Sub loading()
         Try
@@ -545,7 +570,7 @@ Public Class frmschedule
             g1.Refresh()
 
             connect.Close()
-            MsgBox("Transaction Successfull ", vbInformation)
+            '  MsgBox("Transaction Successfull ", vbInformation)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
 
@@ -689,7 +714,7 @@ Public Class frmschedule
             dg2.Refresh()
 
             connect.Close()
-            MsgBox("Transaction Successfull ", vbInformation)
+            ' MsgBox("Transaction Successfull ", vbInformation)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
 
@@ -767,7 +792,7 @@ Public Class frmschedule
             dg1.Refresh()
 
             connect.Close()
-            MsgBox("Transaction Successfull ", vbInformation)
+            'MsgBox("Transaction Successfull ", vbInformation)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
 
@@ -846,7 +871,7 @@ Public Class frmschedule
             a1.Refresh()
 
             connect.Close()
-            MsgBox("Transaction Successfull ", vbInformation)
+            ' MsgBox("Transaction Successfull ", vbInformation)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
 
@@ -996,4 +1021,5 @@ Public Class frmschedule
 
 
     End Sub
+
 End Class

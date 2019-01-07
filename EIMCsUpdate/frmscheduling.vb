@@ -36,6 +36,30 @@ Public Class frmscheduling
             ds = New DataSet
             da.Fill(ds)
             dgw.DataSource = ds.Tables(0)
+
+            With dgw
+                .RowHeadersVisible = False
+                .Columns(0).HeaderCell.Value = "SNO"
+                .Columns(1).HeaderCell.Value = "IPPS NUMBER"
+                .Columns(2).HeaderCell.Value = "EIMCS NUMBER"
+                .Columns(3).HeaderCell.Value = "FILE NUMBER"
+                .Columns(4).HeaderCell.Value = "FULL NAME "
+                .Columns(5).HeaderCell.Value = "ADMIN CHARGES"
+                .Columns(6).HeaderCell.Value = "SHARES"
+                .Columns(7).HeaderCell.Value = "SAVINGS"
+                .Columns(8).HeaderCell.Value = "LONG TERM CASH LOAN"
+                .Columns(9).HeaderCell.Value = "SHORT TERM CASH LOAN"
+                .Columns(10).HeaderCell.Value = "LONG TERM MATERIAL SALES"
+                .Columns(11).HeaderCell.Value = "FOOD ITEMS"
+                .Columns(12).HeaderCell.Value = "NON FOOD ITEMS"
+                .Columns(13).HeaderCell.Value = "EMERGENCY"
+                .Columns(14).HeaderCell.Value = "TOTAL CHARGES"
+                .Columns(15).HeaderCell.Value = "TOTAL"
+                .Columns(16).HeaderCell.Value = "REMARKS"
+
+            End With
+
+
             Myconnection.Close()
             dgw.Refresh()
 
@@ -207,4 +231,8 @@ Public Class frmscheduling
         End Try
     End Sub
 
+    Private Sub ITalk_Button_24_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_24.Click
+        grid()
+
+    End Sub
 End Class

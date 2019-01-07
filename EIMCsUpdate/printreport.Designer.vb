@@ -67,6 +67,9 @@ Partial Class printreport
         Me.BunifuCustomLabel36 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.loansign = New System.Windows.Forms.PictureBox()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
+        Me.txtremark = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.txtsp = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,11 +81,11 @@ Partial Class printreport
         '
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label16.Location = New System.Drawing.Point(616, 155)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(37, 18)
+        Me.Label16.Size = New System.Drawing.Size(34, 15)
         Me.Label16.TabIndex = 211
         Me.Label16.Text = "Date"
         '
@@ -90,11 +93,11 @@ Partial Class printreport
         '
         Me.ibldate.AutoSize = True
         Me.ibldate.BackColor = System.Drawing.Color.Transparent
-        Me.ibldate.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibldate.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibldate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ibldate.Location = New System.Drawing.Point(658, 158)
         Me.ibldate.Name = "ibldate"
-        Me.ibldate.Size = New System.Drawing.Size(28, 18)
+        Me.ibldate.Size = New System.Drawing.Size(32, 15)
         Me.ibldate.TabIndex = 210
         Me.ibldate.Text = "-----"
         '
@@ -102,7 +105,7 @@ Partial Class printreport
         '
         Me.btnupdatemedicalrecord.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnupdatemedicalrecord.ForeColor = System.Drawing.Color.Black
-        Me.btnupdatemedicalrecord.Location = New System.Drawing.Point(389, 666)
+        Me.btnupdatemedicalrecord.Location = New System.Drawing.Point(384, 709)
         Me.btnupdatemedicalrecord.Name = "btnupdatemedicalrecord"
         Me.btnupdatemedicalrecord.Size = New System.Drawing.Size(98, 28)
         Me.btnupdatemedicalrecord.TabIndex = 202
@@ -112,11 +115,11 @@ Partial Class printreport
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label2.Location = New System.Drawing.Point(299, 176)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(287, 24)
+        Me.Label2.Size = New System.Drawing.Size(194, 20)
         Me.Label2.TabIndex = 192
         Me.Label2.Text = "STATEMENT OF ACCOUNT"
         '
@@ -145,7 +148,7 @@ Partial Class printreport
         Me.btncancel.BackColor = System.Drawing.Color.White
         Me.btncancel.Image = CType(resources.GetObject("btncancel.Image"), System.Drawing.Image)
         Me.btncancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btncancel.Location = New System.Drawing.Point(501, 666)
+        Me.btncancel.Location = New System.Drawing.Point(496, 709)
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(90, 28)
         Me.btncancel.TabIndex = 201
@@ -166,20 +169,20 @@ Partial Class printreport
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(329, 113)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(338, 113)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(189, 16)
+        Me.Label1.Size = New System.Drawing.Size(170, 15)
         Me.Label1.TabIndex = 219
         Me.Label1.Text = "Email : eimcsneco@gmail.com"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(173, 97)
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(182, 97)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(488, 16)
+        Me.Label4.Size = New System.Drawing.Size(436, 15)
         Me.Label4.TabIndex = 218
         Me.Label4.Text = "National Exammination Council Km 8, Bida road , P.M.B 159, Niger State , Nigeria." & _
     ""
@@ -187,10 +190,10 @@ Partial Class printreport
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(300, 79)
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(309, 79)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(246, 18)
+        Me.Label6.Size = New System.Drawing.Size(190, 15)
         Me.Label6.TabIndex = 217
         Me.Label6.Text = "Motto : Promoting Ethical  Savings"
         '
@@ -219,11 +222,11 @@ Partial Class printreport
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label3.Location = New System.Drawing.Point(357, 348)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 24)
+        Me.Label3.Size = New System.Drawing.Size(90, 20)
         Me.Label3.TabIndex = 221
         Me.Label3.Text = " SUMMARY"
         '
@@ -231,10 +234,10 @@ Partial Class printreport
         '
         Me.txteno.AutoSize = True
         Me.txteno.BackColor = System.Drawing.Color.White
-        Me.txteno.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txteno.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txteno.Location = New System.Drawing.Point(144, 296)
         Me.txteno.Name = "txteno"
-        Me.txteno.Size = New System.Drawing.Size(18, 21)
+        Me.txteno.Size = New System.Drawing.Size(12, 15)
         Me.txteno.TabIndex = 232
         Me.txteno.Text = "_"
         '
@@ -242,10 +245,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel7.AutoSize = True
         Me.BunifuCustomLabel7.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel7.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel7.Location = New System.Drawing.Point(24, 298)
         Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
-        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(83, 21)
+        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(60, 15)
         Me.BunifuCustomLabel7.TabIndex = 231
         Me.BunifuCustomLabel7.Text = "Eimcs No:"
         '
@@ -253,10 +256,10 @@ Partial Class printreport
         '
         Me.txtfno.AutoSize = True
         Me.txtfno.BackColor = System.Drawing.Color.White
-        Me.txtfno.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtfno.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtfno.Location = New System.Drawing.Point(143, 270)
         Me.txtfno.Name = "txtfno"
-        Me.txtfno.Size = New System.Drawing.Size(18, 21)
+        Me.txtfno.Size = New System.Drawing.Size(12, 15)
         Me.txtfno.TabIndex = 230
         Me.txtfno.Text = "_"
         '
@@ -264,10 +267,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel4.AutoSize = True
         Me.BunifuCustomLabel4.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel4.Location = New System.Drawing.Point(24, 271)
         Me.BunifuCustomLabel4.Name = "BunifuCustomLabel4"
-        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(64, 21)
+        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(47, 15)
         Me.BunifuCustomLabel4.TabIndex = 229
         Me.BunifuCustomLabel4.Text = "File No:"
         '
@@ -275,10 +278,10 @@ Partial Class printreport
         '
         Me.txtmd.AutoSize = True
         Me.txtmd.BackColor = System.Drawing.Color.White
-        Me.txtmd.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtmd.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtmd.Location = New System.Drawing.Point(144, 324)
         Me.txtmd.Name = "txtmd"
-        Me.txtmd.Size = New System.Drawing.Size(18, 21)
+        Me.txtmd.Size = New System.Drawing.Size(12, 15)
         Me.txtmd.TabIndex = 228
         Me.txtmd.Text = "_"
         '
@@ -286,10 +289,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel37.AutoSize = True
         Me.BunifuCustomLabel37.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel37.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel37.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel37.Location = New System.Drawing.Point(26, 326)
         Me.BunifuCustomLabel37.Name = "BunifuCustomLabel37"
-        Me.BunifuCustomLabel37.Size = New System.Drawing.Size(86, 21)
+        Me.BunifuCustomLabel37.Size = New System.Drawing.Size(59, 15)
         Me.BunifuCustomLabel37.TabIndex = 227
         Me.BunifuCustomLabel37.Text = "Duration :"
         '
@@ -297,10 +300,10 @@ Partial Class printreport
         '
         Me.txtipps.AutoSize = True
         Me.txtipps.BackColor = System.Drawing.Color.White
-        Me.txtipps.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtipps.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtipps.Location = New System.Drawing.Point(142, 244)
         Me.txtipps.Name = "txtipps"
-        Me.txtipps.Size = New System.Drawing.Size(18, 21)
+        Me.txtipps.Size = New System.Drawing.Size(12, 15)
         Me.txtipps.TabIndex = 226
         Me.txtipps.Text = "_"
         '
@@ -308,10 +311,10 @@ Partial Class printreport
         '
         Me.txtfname.AutoSize = True
         Me.txtfname.BackColor = System.Drawing.Color.White
-        Me.txtfname.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtfname.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtfname.Location = New System.Drawing.Point(144, 214)
         Me.txtfname.Name = "txtfname"
-        Me.txtfname.Size = New System.Drawing.Size(18, 21)
+        Me.txtfname.Size = New System.Drawing.Size(12, 15)
         Me.txtfname.TabIndex = 225
         Me.txtfname.Text = "_"
         '
@@ -319,10 +322,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel16.AutoSize = True
         Me.BunifuCustomLabel16.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel16.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel16.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel16.Location = New System.Drawing.Point(25, 242)
         Me.BunifuCustomLabel16.Name = "BunifuCustomLabel16"
-        Me.BunifuCustomLabel16.Size = New System.Drawing.Size(73, 21)
+        Me.BunifuCustomLabel16.Size = New System.Drawing.Size(51, 15)
         Me.BunifuCustomLabel16.TabIndex = 224
         Me.BunifuCustomLabel16.Text = "Ipps No:"
         '
@@ -330,10 +333,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel15.AutoSize = True
         Me.BunifuCustomLabel15.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel15.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel15.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel15.Location = New System.Drawing.Point(24, 215)
         Me.BunifuCustomLabel15.Name = "BunifuCustomLabel15"
-        Me.BunifuCustomLabel15.Size = New System.Drawing.Size(90, 21)
+        Me.BunifuCustomLabel15.Size = New System.Drawing.Size(64, 15)
         Me.BunifuCustomLabel15.TabIndex = 223
         Me.BunifuCustomLabel15.Text = "FullName :"
         '
@@ -353,10 +356,10 @@ Partial Class printreport
         '
         Me.txtemer.AutoSize = True
         Me.txtemer.BackColor = System.Drawing.Color.White
-        Me.txtemer.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtemer.Location = New System.Drawing.Point(261, 616)
+        Me.txtemer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtemer.Location = New System.Drawing.Point(178, 616)
         Me.txtemer.Name = "txtemer"
-        Me.txtemer.Size = New System.Drawing.Size(20, 22)
+        Me.txtemer.Size = New System.Drawing.Size(12, 15)
         Me.txtemer.TabIndex = 248
         Me.txtemer.Text = "_"
         '
@@ -364,10 +367,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel3.AutoSize = True
         Me.BunifuCustomLabel3.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel3.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel3.Location = New System.Drawing.Point(26, 616)
         Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
-        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(176, 22)
+        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(101, 15)
         Me.BunifuCustomLabel3.TabIndex = 247
         Me.BunifuCustomLabel3.Text = "Emergency Loan :"
         '
@@ -375,10 +378,10 @@ Partial Class printreport
         '
         Me.stms1.AutoSize = True
         Me.stms1.BackColor = System.Drawing.Color.White
-        Me.stms1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.stms1.Location = New System.Drawing.Point(261, 552)
+        Me.stms1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.stms1.Location = New System.Drawing.Point(178, 552)
         Me.stms1.Name = "stms1"
-        Me.stms1.Size = New System.Drawing.Size(20, 22)
+        Me.stms1.Size = New System.Drawing.Size(12, 15)
         Me.stms1.TabIndex = 246
         Me.stms1.Text = "_"
         '
@@ -386,10 +389,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel26.AutoSize = True
         Me.BunifuCustomLabel26.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel26.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel26.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel26.Location = New System.Drawing.Point(26, 552)
         Me.BunifuCustomLabel26.Name = "BunifuCustomLabel26"
-        Me.BunifuCustomLabel26.Size = New System.Drawing.Size(167, 22)
+        Me.BunifuCustomLabel26.Size = New System.Drawing.Size(101, 15)
         Me.BunifuCustomLabel26.TabIndex = 245
         Me.BunifuCustomLabel26.Text = "Non Food Items  :"
         '
@@ -397,10 +400,10 @@ Partial Class printreport
         '
         Me.txtltms.AutoSize = True
         Me.txtltms.BackColor = System.Drawing.Color.White
-        Me.txtltms.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtltms.Location = New System.Drawing.Point(261, 583)
+        Me.txtltms.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtltms.Location = New System.Drawing.Point(178, 583)
         Me.txtltms.Name = "txtltms"
-        Me.txtltms.Size = New System.Drawing.Size(20, 22)
+        Me.txtltms.Size = New System.Drawing.Size(12, 15)
         Me.txtltms.TabIndex = 244
         Me.txtltms.Text = "_"
         '
@@ -408,10 +411,10 @@ Partial Class printreport
         '
         Me.txtstms.AutoSize = True
         Me.txtstms.BackColor = System.Drawing.Color.White
-        Me.txtstms.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtstms.Location = New System.Drawing.Point(261, 520)
+        Me.txtstms.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtstms.Location = New System.Drawing.Point(178, 520)
         Me.txtstms.Name = "txtstms"
-        Me.txtstms.Size = New System.Drawing.Size(20, 22)
+        Me.txtstms.Size = New System.Drawing.Size(12, 15)
         Me.txtstms.TabIndex = 243
         Me.txtstms.Text = "_"
         '
@@ -419,10 +422,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel42.AutoSize = True
         Me.BunifuCustomLabel42.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel42.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel42.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel42.Location = New System.Drawing.Point(27, 583)
         Me.BunifuCustomLabel42.Name = "BunifuCustomLabel42"
-        Me.BunifuCustomLabel42.Size = New System.Drawing.Size(235, 22)
+        Me.BunifuCustomLabel42.Size = New System.Drawing.Size(140, 15)
         Me.BunifuCustomLabel42.TabIndex = 242
         Me.BunifuCustomLabel42.Text = "Long Term Material Sale :"
         '
@@ -430,10 +433,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel43.AutoSize = True
         Me.BunifuCustomLabel43.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel43.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel43.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel43.Location = New System.Drawing.Point(26, 520)
         Me.BunifuCustomLabel43.Name = "BunifuCustomLabel43"
-        Me.BunifuCustomLabel43.Size = New System.Drawing.Size(124, 22)
+        Me.BunifuCustomLabel43.Size = New System.Drawing.Size(75, 15)
         Me.BunifuCustomLabel43.TabIndex = 241
         Me.BunifuCustomLabel43.Text = "Food Items  :"
         '
@@ -441,10 +444,10 @@ Partial Class printreport
         '
         Me.txtltcl.AutoSize = True
         Me.txtltcl.BackColor = System.Drawing.Color.White
-        Me.txtltcl.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtltcl.Location = New System.Drawing.Point(261, 487)
+        Me.txtltcl.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtltcl.Location = New System.Drawing.Point(178, 487)
         Me.txtltcl.Name = "txtltcl"
-        Me.txtltcl.Size = New System.Drawing.Size(20, 22)
+        Me.txtltcl.Size = New System.Drawing.Size(12, 15)
         Me.txtltcl.TabIndex = 240
         Me.txtltcl.Text = "_"
         '
@@ -452,10 +455,10 @@ Partial Class printreport
         '
         Me.txtstcl.AutoSize = True
         Me.txtstcl.BackColor = System.Drawing.Color.White
-        Me.txtstcl.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtstcl.Location = New System.Drawing.Point(261, 453)
+        Me.txtstcl.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtstcl.Location = New System.Drawing.Point(178, 453)
         Me.txtstcl.Name = "txtstcl"
-        Me.txtstcl.Size = New System.Drawing.Size(20, 22)
+        Me.txtstcl.Size = New System.Drawing.Size(12, 15)
         Me.txtstcl.TabIndex = 239
         Me.txtstcl.Text = "_"
         '
@@ -463,10 +466,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel39.AutoSize = True
         Me.BunifuCustomLabel39.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel39.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel39.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel39.Location = New System.Drawing.Point(26, 487)
         Me.BunifuCustomLabel39.Name = "BunifuCustomLabel39"
-        Me.BunifuCustomLabel39.Size = New System.Drawing.Size(217, 22)
+        Me.BunifuCustomLabel39.Size = New System.Drawing.Size(128, 15)
         Me.BunifuCustomLabel39.TabIndex = 238
         Me.BunifuCustomLabel39.Text = "Long Term Cash Loan :"
         '
@@ -474,10 +477,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel40.AutoSize = True
         Me.BunifuCustomLabel40.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel40.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel40.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel40.Location = New System.Drawing.Point(26, 453)
         Me.BunifuCustomLabel40.Name = "BunifuCustomLabel40"
-        Me.BunifuCustomLabel40.Size = New System.Drawing.Size(217, 22)
+        Me.BunifuCustomLabel40.Size = New System.Drawing.Size(129, 15)
         Me.BunifuCustomLabel40.TabIndex = 237
         Me.BunifuCustomLabel40.Text = "ShortTerm Cash Loan  :"
         '
@@ -485,10 +488,10 @@ Partial Class printreport
         '
         Me.txtsavgs.AutoSize = True
         Me.txtsavgs.BackColor = System.Drawing.Color.White
-        Me.txtsavgs.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsavgs.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsavgs.Location = New System.Drawing.Point(178, 420)
         Me.txtsavgs.Name = "txtsavgs"
-        Me.txtsavgs.Size = New System.Drawing.Size(20, 22)
+        Me.txtsavgs.Size = New System.Drawing.Size(12, 15)
         Me.txtsavgs.TabIndex = 236
         Me.txtsavgs.Text = "_"
         '
@@ -496,10 +499,10 @@ Partial Class printreport
         '
         Me.txtshare.AutoSize = True
         Me.txtshare.BackColor = System.Drawing.Color.White
-        Me.txtshare.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtshare.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtshare.Location = New System.Drawing.Point(177, 391)
         Me.txtshare.Name = "txtshare"
-        Me.txtshare.Size = New System.Drawing.Size(20, 22)
+        Me.txtshare.Size = New System.Drawing.Size(12, 15)
         Me.txtshare.TabIndex = 235
         Me.txtshare.Text = "_"
         '
@@ -507,10 +510,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel35.AutoSize = True
         Me.BunifuCustomLabel35.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel35.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel35.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel35.Location = New System.Drawing.Point(26, 421)
         Me.BunifuCustomLabel35.Name = "BunifuCustomLabel35"
-        Me.BunifuCustomLabel35.Size = New System.Drawing.Size(133, 22)
+        Me.BunifuCustomLabel35.Size = New System.Drawing.Size(79, 15)
         Me.BunifuCustomLabel35.TabIndex = 234
         Me.BunifuCustomLabel35.Text = "Total Savings:"
         '
@@ -518,10 +521,10 @@ Partial Class printreport
         '
         Me.BunifuCustomLabel36.AutoSize = True
         Me.BunifuCustomLabel36.BackColor = System.Drawing.Color.White
-        Me.BunifuCustomLabel36.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel36.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel36.Location = New System.Drawing.Point(25, 391)
         Me.BunifuCustomLabel36.Name = "BunifuCustomLabel36"
-        Me.BunifuCustomLabel36.Size = New System.Drawing.Size(127, 22)
+        Me.BunifuCustomLabel36.Size = New System.Drawing.Size(76, 15)
         Me.BunifuCustomLabel36.TabIndex = 233
         Me.BunifuCustomLabel36.Text = "Total Shares :"
         '
@@ -535,6 +538,7 @@ Partial Class printreport
         Me.loansign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.loansign.TabIndex = 249
         Me.loansign.TabStop = False
+        Me.loansign.Visible = False
         '
         'PrintForm1
         '
@@ -544,13 +548,49 @@ Partial Class printreport
         Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.PrintForm1.PrintFileName = Nothing
         '
+        'txtremark
+        '
+        Me.txtremark.AutoSize = True
+        Me.txtremark.BackColor = System.Drawing.Color.White
+        Me.txtremark.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtremark.Location = New System.Drawing.Point(338, 675)
+        Me.txtremark.Name = "txtremark"
+        Me.txtremark.Size = New System.Drawing.Size(12, 15)
+        Me.txtremark.TabIndex = 250
+        Me.txtremark.Text = "_"
+        Me.txtremark.Visible = False
+        '
+        'txtsp
+        '
+        Me.txtsp.AutoSize = True
+        Me.txtsp.BackColor = System.Drawing.Color.White
+        Me.txtsp.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsp.Location = New System.Drawing.Point(179, 647)
+        Me.txtsp.Name = "txtsp"
+        Me.txtsp.Size = New System.Drawing.Size(12, 15)
+        Me.txtsp.TabIndex = 252
+        Me.txtsp.Text = "_"
+        '
+        'BunifuCustomLabel2
+        '
+        Me.BunifuCustomLabel2.AutoSize = True
+        Me.BunifuCustomLabel2.BackColor = System.Drawing.Color.White
+        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(27, 647)
+        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
+        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(122, 15)
+        Me.BunifuCustomLabel2.TabIndex = 251
+        Me.BunifuCustomLabel2.Text = "Total Special Savings :"
+        '
         'printreport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(817, 749)
-        Me.Controls.Add(Me.loansign)
+        Me.Controls.Add(Me.txtsp)
+        Me.Controls.Add(Me.BunifuCustomLabel2)
+        Me.Controls.Add(Me.txtremark)
         Me.Controls.Add(Me.txtemer)
         Me.Controls.Add(Me.BunifuCustomLabel3)
         Me.Controls.Add(Me.stms1)
@@ -592,6 +632,7 @@ Partial Class printreport
         Me.Controls.Add(Me.btncancel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.loansign)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "printreport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -648,4 +689,7 @@ Partial Class printreport
     Friend WithEvents BunifuCustomLabel36 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents loansign As System.Windows.Forms.PictureBox
     Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
+    Friend WithEvents txtremark As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents txtsp As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
 End Class

@@ -8,11 +8,11 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AC285FC3-ADD4-4983-B8EE-71F6C3C4C196}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>EIMCsUpdate.My.MyApplication</StartupObject>
+    <StartupObject>EIMCsUpdate.Signin</StartupObject>
     <RootNamespace>EIMCsUpdate</RootNamespace>
     <AssemblyName>EIMCsUpdate</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
@@ -257,6 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

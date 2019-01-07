@@ -14,6 +14,8 @@ Public Class members
     Dim firstdate As Date
     Dim seconddate As Date
     Dim msg, msg2, msg3 As Double
+    Dim fy As String
+
 
     Dim Myconnection As New MySqlConnection With {.ConnectionString = "server = localhost; userid = root ; password =; database = eimcs ;"}
     Dim use, x As String
@@ -638,6 +640,8 @@ Public Class members
                 schedule()
                 shares()
                 savings()
+                special()
+
                 admins()
                 logs()
                 savecharges()
@@ -660,6 +664,31 @@ Public Class members
 
             Dim sql As String
             sql = "insert into savings (fullname,ippsno,amount)" _
+                                 & "VALUES(@fullname,@ippsno,@savings)"
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
+            cmdx.Parameters.AddWithValue("@ippsno", txtippsno.Text)
+            cmdx.Parameters.AddWithValue("@savings", "0")
+            'T_CHARGES
+            cmdx.ExecuteNonQuery()
+            'MsgBox("Information Saved Successfully ", vbInformation)
+            Myconnection.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+    'add specials savings
+    Sub special()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+            Dim sql As String
+            sql = "insert into special (fullname,ippsno,amount)" _
                                  & "VALUES(@fullname,@ippsno,@savings)"
             Dim cmdx As New MySqlCommand(sql, Myconnection)
             cmdx.Parameters.AddWithValue("@fullname", txtFullname.Text)
@@ -935,7 +964,11 @@ Public Class members
 
 
     Private Sub btngenerate_Click(sender As System.Object, e As System.EventArgs) Handles btngenerate.Click
-        generate()
+        'generate()
+
+        id()
+
+
     End Sub
 
 
@@ -950,43 +983,12 @@ Public Class members
         ElseIf txtsearch.Text = "" Then
             MsgBox("Space Cannot be Empty ... Please Enter a value", vbInformation)
             txtsearch.Focus()
-        ElseIf a > 5 Then
-            MsgBox("Search Value must be 5 Digits Value", vbInformation)
         ElseIf txtoption.selectedIndex = 1 Then
 
-            If Len(txtsearch.Text) = 1 Then
-                txtsearch.Text = "0000" & txtsearch.Text
-                search1()
-            ElseIf Len(txtsearch.Text) = 2 Then
-                txtsearch.Text = "000" & txtsearch.Text
-                search1()
-            ElseIf Len(txtsearch.Text) = 3 Then
-                txtsearch.Text = "00" & txtsearch.Text
-                search1()
-            ElseIf Len(txtsearch.Text) = 4 Then
-                txtsearch.Text = "0" & txtsearch.Text
-                search1()
-            Else
-                search1()
-
-            End If
+            search1()
         ElseIf txtoption.selectedIndex = 2 Then
-
-            If Len(txtsearch.Text) = 1 Then
-                txtsearch.Text = "0000" & txtsearch.Text
-                search2()
-            ElseIf Len(txtsearch.Text) = 2 Then
-                txtsearch.Text = "000" & txtsearch.Text
-                search2()
-            ElseIf Len(txtsearch.Text) = 3 Then
-                txtsearch.Text = "00" & txtsearch.Text
-                search2()
-            ElseIf Len(txtsearch.Text) = 4 Then
-                txtsearch.Text = "0" & txtsearch.Text
-                search2()
-            Else
-                search2()
-            End If
+            search2()
+           
         ElseIf txtoption.selectedIndex = 3 Then
 
             If Len(txtsearch.Text) = 1 Then
@@ -1396,4 +1398,44 @@ Public Class members
 
 
 
+    Private Sub txtippsno_OnValueChanged(sender As System.Object, e As System.EventArgs) Handles txtippsno.OnValueChanged
+
+    End Sub
+
+    Private Sub txtippsno_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtippsno.Validating
+
+    End Sub
+    Sub id()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+
+            Dim selectQuery As String = "select * from members  "
+            cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
+            ds = New DataSet
+            da.Fill(ds)
+            dgw.DataSource = ds.Tables(0)
+
+            Dim myLastRowIndex2 As Integer = dgw.Rows.Count - 1
+
+            Myconnection.Close()
+            dgw.Refresh()
+            fy = myLastRowIndex2 + 1
+            If Len(fy) < 2 Then
+                txtEimcs.Text = "0000" & fy
+            ElseIf Len(fy < 3) Then
+                txtEimcs.Text = "000" & fy
+            ElseIf Len(fy < 4) Then
+                txtEimcs.Text = "00" & fy
+            ElseIf Len(fy < 5) Then
+                txtEimcs.Text = "0" & fy
+
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+       
+    End Sub
 End Class

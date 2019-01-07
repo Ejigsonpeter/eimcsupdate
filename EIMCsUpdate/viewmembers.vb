@@ -45,6 +45,37 @@ Public Class viewmembers
             ds = New DataSet
             da.Fill(ds)
             dgw.DataSource = ds.Tables(0)
+            With dgw
+                .RowHeadersVisible = False
+                .Columns(0).HeaderCell.Value = "S/N0"
+                .Columns(1).HeaderCell.Value = "SURNAME"
+                .Columns(2).HeaderCell.Value = "FIRST NAME"
+                .Columns(3).HeaderCell.Value = "MIDDLE NAME"
+                .Columns(4).HeaderCell.Value = "IPPS NUMBER"
+                .Columns(5).HeaderCell.Value = "FILE NUMBER"
+                .Columns(6).HeaderCell.Value = "DEPARTMENT/UNIT"
+                .Columns(7).HeaderCell.Value = "RANK"
+                .Columns(8).HeaderCell.Value = "LOCATION"
+                .Columns(9).HeaderCell.Value = "PHONE NUMBER 1"
+                .Columns(10).HeaderCell.Value = "PHONE NUMBER 2"
+                .Columns(11).HeaderCell.Value = "RESIDENTIAL ADDRESS"
+                .Columns(12).HeaderCell.Value = "NAME OF NEXT OF KIN 1"
+                .Columns(13).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 1"
+                .Columns(14).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 1"
+                .Columns(15).HeaderCell.Value = "NEXT OF KIN ADDRESS 1"
+                .Columns(16).HeaderCell.Value = "NAME OF NEXT OF KIN 2"
+                .Columns(17).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 2"
+                .Columns(18).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 2"
+                .Columns(19).HeaderCell.Value = "NEXT OF KIN ADDRESS 2"
+                .Columns(20).HeaderCell.Value = "SHARES"
+                .Columns(21).HeaderCell.Value = "SAVINGS"
+                .Columns(22).HeaderCell.Value = "REGISTRATION FEES"
+                .Columns(23).HeaderCell.Value = "EIMCS NUMBER "
+                .Columns(24).HeaderCell.Value = "APPROVAL STATUS"
+                .Columns(25).HeaderCell.Value = "FULL NAME "
+                .Columns(26).HeaderCell.Value = "APPLICANTION DATE"
+
+            End With
             Myconnection.Close()
             dgw.Refresh()
 
@@ -74,6 +105,37 @@ Public Class viewmembers
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/N0"
+            .Columns(1).HeaderCell.Value = "SURNAME"
+            .Columns(2).HeaderCell.Value = "FIRST NAME"
+            .Columns(3).HeaderCell.Value = "MIDDLE NAME"
+            .Columns(4).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(5).HeaderCell.Value = "FILE NUMBER"
+            .Columns(6).HeaderCell.Value = "DEPARTMENT/UNIT"
+            .Columns(7).HeaderCell.Value = "RANK"
+            .Columns(8).HeaderCell.Value = "LOCATION"
+            .Columns(9).HeaderCell.Value = "PHONE NUMBER 1"
+            .Columns(10).HeaderCell.Value = "PHONE NUMBER 2"
+            .Columns(11).HeaderCell.Value = "RESIDENTIAL ADDRESS"
+            .Columns(12).HeaderCell.Value = "NAME OF NEXT OF KIN 1"
+            .Columns(13).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 1"
+            .Columns(14).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 1"
+            .Columns(15).HeaderCell.Value = "NEXT OF KIN ADDRESS 1"
+            .Columns(16).HeaderCell.Value = "NAME OF NEXT OF KIN 2"
+            .Columns(17).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 2"
+            .Columns(18).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 2"
+            .Columns(19).HeaderCell.Value = "NEXT OF KIN ADDRESS 2"
+            .Columns(20).HeaderCell.Value = "SHARES"
+            .Columns(21).HeaderCell.Value = "SAVINGS"
+            .Columns(22).HeaderCell.Value = "REGISTRATION FEES"
+            .Columns(23).HeaderCell.Value = "EIMCS NUMBER "
+            .Columns(24).HeaderCell.Value = "APPROVAL STATUS"
+            .Columns(25).HeaderCell.Value = "FULL NAME "
+            .Columns(26).HeaderCell.Value = "APPLICANTION DATE"
+
+        End With
         dgw.Refresh()
         source1.Filter = "applicantdate >= '" & firstdate & "' and  applicantdate <= '" & seconddate & "'"
         dgw.Refresh()
@@ -97,6 +159,37 @@ Public Class viewmembers
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/N0"
+            .Columns(1).HeaderCell.Value = "SURNAME"
+            .Columns(2).HeaderCell.Value = "FIRST NAME"
+            .Columns(3).HeaderCell.Value = "MIDDLE NAME"
+            .Columns(4).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(5).HeaderCell.Value = "FILE NUMBER"
+            .Columns(6).HeaderCell.Value = "DEPARTMENT/UNIT"
+            .Columns(7).HeaderCell.Value = "RANK"
+            .Columns(8).HeaderCell.Value = "LOCATION"
+            .Columns(9).HeaderCell.Value = "PHONE NUMBER 1"
+            .Columns(10).HeaderCell.Value = "PHONE NUMBER 2"
+            .Columns(11).HeaderCell.Value = "RESIDENTIAL ADDRESS"
+            .Columns(12).HeaderCell.Value = "NAME OF NEXT OF KIN 1"
+            .Columns(13).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 1"
+            .Columns(14).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 1"
+            .Columns(15).HeaderCell.Value = "NEXT OF KIN ADDRESS 1"
+            .Columns(16).HeaderCell.Value = "NAME OF NEXT OF KIN 2"
+            .Columns(17).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 2"
+            .Columns(18).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 2"
+            .Columns(19).HeaderCell.Value = "NEXT OF KIN ADDRESS 2"
+            .Columns(20).HeaderCell.Value = "SHARES"
+            .Columns(21).HeaderCell.Value = "SAVINGS"
+            .Columns(22).HeaderCell.Value = "REGISTRATION FEES"
+            .Columns(23).HeaderCell.Value = "EIMCS NUMBER "
+            .Columns(24).HeaderCell.Value = "APPROVAL STATUS"
+            .Columns(25).HeaderCell.Value = "FULL NAME "
+            .Columns(26).HeaderCell.Value = "APPLICANTION DATE"
+
+        End With
         dgw.Refresh()
         source1.Filter = "ippsno = '" & x & "'"
         dgw.Refresh()
@@ -137,6 +230,37 @@ Public Class viewmembers
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/N0"
+            .Columns(1).HeaderCell.Value = "SURNAME"
+            .Columns(2).HeaderCell.Value = "FIRST NAME"
+            .Columns(3).HeaderCell.Value = "MIDDLE NAME"
+            .Columns(4).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(5).HeaderCell.Value = "FILE NUMBER"
+            .Columns(6).HeaderCell.Value = "DEPARTMENT/UNIT"
+            .Columns(7).HeaderCell.Value = "RANK"
+            .Columns(8).HeaderCell.Value = "LOCATION"
+            .Columns(9).HeaderCell.Value = "PHONE NUMBER 1"
+            .Columns(10).HeaderCell.Value = "PHONE NUMBER 2"
+            .Columns(11).HeaderCell.Value = "RESIDENTIAL ADDRESS"
+            .Columns(12).HeaderCell.Value = "NAME OF NEXT OF KIN 1"
+            .Columns(13).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 1"
+            .Columns(14).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 1"
+            .Columns(15).HeaderCell.Value = "NEXT OF KIN ADDRESS 1"
+            .Columns(16).HeaderCell.Value = "NAME OF NEXT OF KIN 2"
+            .Columns(17).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 2"
+            .Columns(18).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 2"
+            .Columns(19).HeaderCell.Value = "NEXT OF KIN ADDRESS 2"
+            .Columns(20).HeaderCell.Value = "SHARES"
+            .Columns(21).HeaderCell.Value = "SAVINGS"
+            .Columns(22).HeaderCell.Value = "REGISTRATION FEES"
+            .Columns(23).HeaderCell.Value = "EIMCS NUMBER "
+            .Columns(24).HeaderCell.Value = "APPROVAL STATUS"
+            .Columns(25).HeaderCell.Value = "FULL NAME "
+            .Columns(26).HeaderCell.Value = "APPLICANTION DATE"
+
+        End With
         dgw.Refresh()
         source1.Filter = "ippsno = '" & x & "'"
         dgw.Refresh()
@@ -158,6 +282,37 @@ Public Class viewmembers
         Dim view1 As New DataView(tables(0))
         source1.DataSource = view1
         dgw.DataSource = view1
+        With dgw
+            .RowHeadersVisible = False
+            .Columns(0).HeaderCell.Value = "S/N0"
+            .Columns(1).HeaderCell.Value = "SURNAME"
+            .Columns(2).HeaderCell.Value = "FIRST NAME"
+            .Columns(3).HeaderCell.Value = "MIDDLE NAME"
+            .Columns(4).HeaderCell.Value = "IPPS NUMBER"
+            .Columns(5).HeaderCell.Value = "FILE NUMBER"
+            .Columns(6).HeaderCell.Value = "DEPARTMENT/UNIT"
+            .Columns(7).HeaderCell.Value = "RANK"
+            .Columns(8).HeaderCell.Value = "LOCATION"
+            .Columns(9).HeaderCell.Value = "PHONE NUMBER 1"
+            .Columns(10).HeaderCell.Value = "PHONE NUMBER 2"
+            .Columns(11).HeaderCell.Value = "RESIDENTIAL ADDRESS"
+            .Columns(12).HeaderCell.Value = "NAME OF NEXT OF KIN 1"
+            .Columns(13).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 1"
+            .Columns(14).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 1"
+            .Columns(15).HeaderCell.Value = "NEXT OF KIN ADDRESS 1"
+            .Columns(16).HeaderCell.Value = "NAME OF NEXT OF KIN 2"
+            .Columns(17).HeaderCell.Value = "NEXT OF KIN PHONE NUMBER 2"
+            .Columns(18).HeaderCell.Value = "NEXT OF KIN RELATIONSHIP 2"
+            .Columns(19).HeaderCell.Value = "NEXT OF KIN ADDRESS 2"
+            .Columns(20).HeaderCell.Value = "SHARES"
+            .Columns(21).HeaderCell.Value = "SAVINGS"
+            .Columns(22).HeaderCell.Value = "REGISTRATION FEES"
+            .Columns(23).HeaderCell.Value = "EIMCS NUMBER "
+            .Columns(24).HeaderCell.Value = "APPROVAL STATUS"
+            .Columns(25).HeaderCell.Value = "FULL NAME "
+            .Columns(26).HeaderCell.Value = "APPLICANTION DATE"
+
+        End With
         dgw.Refresh()
         source1.Filter = "eimcsno = '" & x & "'"
         dgw.Refresh()
@@ -805,4 +960,7 @@ Public Class viewmembers
         End Try
     End Sub
 
+    Private Sub dgw_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgw.CellContentClick
+
+    End Sub
 End Class

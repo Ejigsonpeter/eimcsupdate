@@ -9,6 +9,8 @@ Public Class controlpanel
     Dim dr As MySqlDataReader
     Dim da As MySqlDataAdapter
     Dim ds As New DataSet
+    Dim fname As String
+
     Dim cmd As MySqlCommand
     Dim firstdate As Date
     Dim seconddate As Date
@@ -39,6 +41,14 @@ Public Class controlpanel
             If count > 0 Then
 
                 MsgBox(count & "Matching record found in Database", vbInformation)
+
+                fname = reader.Item("fullname").ToString
+                MsgBox(fname)
+                Myconnection.Close()
+
+                totalsavings()
+                totalsp()
+
 
             Else
                 MsgBox("No Matching record found in Database", vbCritical)
@@ -128,6 +138,7 @@ Public Class controlpanel
                 txtsearch.Text = ""
                 txtextend.Text = ""
                 txtm.SelectedIndex = 0
+
             Else
                 MsgBox("No Records Found", vbCritical)
 
@@ -138,6 +149,10 @@ Public Class controlpanel
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Sub loge()
+
     End Sub
 
     Sub m1()
@@ -820,6 +835,302 @@ Public Class controlpanel
             MsgBox("Please Enter Shares Amount ", vbInformation)
         Else
             shares()
+
+        End If
+    End Sub
+
+    Sub totalsavings()
+
+        Myconnection.Open()
+        Dim selectQuery As String = "select * from savings where ippsno = '" & txtsearch.Text & "'"
+        cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
+        ds = New DataSet
+        da.Fill(ds)
+        DataGridView1.DataSource = ds.Tables(0)
+        Dim a As Double
+        For Line As Integer = 0 To DataGridView1.RowCount - 1
+            a = (a + DataGridView1.Rows(Line).Cells(3).Value)
+
+
+        Next
+        txtsavgs.Text = a
+        Myconnection.Close()
+
+    End Sub
+
+    Sub totalsp()
+
+        Myconnection.Open()
+        Dim selectQuery As String = "select * from special where ippsno = '" & txtsearch.Text & "'"
+        cmd = New MySql.Data.MySqlClient.MySqlCommand(selectQuery, Myconnection)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter(cmd)
+        ds = New DataSet
+        da.Fill(ds)
+        DataGridView2.DataSource = ds.Tables(0)
+        Dim b As Double
+        For Line As Integer = 0 To DataGridView2.RowCount - 1
+            b = (b + DataGridView2.Rows(Line).Cells(3).Value)
+
+
+        Next
+        txtsps.Text = b
+        Myconnection.Close()
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+
+    Sub logsv()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = "Savings withdrawal for  " & txtsearch.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", label2.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+    End Sub
+
+    Private Sub ITalk_Button_25_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_25.Click
+        If Val(txtsavgs.Text) < (Txtwithdrawal.Text) Then
+            MsgBox("Sorry you cannot withdraw this amount because it exceeds your savings ", vbInformation
+                   )
+        ElseIf (Val(txtsavgs.Text) - (Txtwithdrawal.Text)) < 2000 Then
+            MsgBox("sorry you cannot withdraw this amount because you must have a minimum savings of 2000", vbInformation
+                   )
+        ElseIf Txtwithdrawal.Text = "" Then
+            MsgBox("Please enter a amount to be withdrawn", vbInformation)
+
+        Else
+
+            Try
+                Myconnection.Close()
+                Myconnection.Open()
+                Dim at, task As String
+                at = Now
+                task = "Changed Savings amount for " & txtsearch.Text
+
+
+                Dim sql As String
+
+                Dim amt As String = "-" & Txtwithdrawal.Text
+
+
+
+                sql = "insert into savings (fullname,ippsno,amount)" _
+                        & "VALUES(@fullname,@ippsno,@amount)"
+
+                Dim cmdx As New MySqlCommand(sql, Myconnection)
+                cmdx.Parameters.AddWithValue("@fullname", fname)
+                cmdx.Parameters.AddWithValue("@ippsno", txtsearch.Text)
+                cmdx.Parameters.AddWithValue("@amount", amt)
+
+                cmdx.ExecuteNonQuery()
+
+                MsgBox("Transaction Successfull", vbInformation)
+
+                txtsavgs.Text = ""
+                Txtwithdrawal.Text = ""
+
+                Myconnection.Close()
+                logsv()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Myconnection.Close()
+            End Try
+
+
+
+
+        End If
+
+    End Sub
+
+    Sub logdp()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = "Special Savings Deposit for " & txtsearch.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", label2.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+    End Sub
+
+    Private Sub ITalk_Button_26_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_26.Click
+        If TextBox1.Text = "" Then
+            MsgBox("enter amount ", vbInformation)
+            TextBox1.Focus()
+        Else
+            Try
+                Myconnection.Close()
+                Myconnection.Open()
+                Dim at, task As String
+                at = Now
+                task = "Changed Savings amount for " & txtsearch.Text
+
+
+                Dim sql As String
+
+                Dim amt As String = "-" & Txtwithdrawal.Text
+
+
+
+                sql = "insert into special (fullname,ippsno,amount)" _
+                        & "VALUES(@fullname,@ippsno,@amount)"
+
+                Dim cmdx As New MySqlCommand(sql, Myconnection)
+                cmdx.Parameters.AddWithValue("@fullname", fname)
+                cmdx.Parameters.AddWithValue("@ippsno", txtsearch.Text)
+                cmdx.Parameters.AddWithValue("@amount", TextBox1.Text)
+
+                cmdx.ExecuteNonQuery()
+
+                MsgBox("Transaction Successfull", vbInformation)
+
+                TextBox1.Text = ""
+                
+                Myconnection.Close()
+                logdp()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Myconnection.Close()
+            End Try
+
+
+        End If
+    End Sub
+
+
+    Sub logspw()
+        Try
+            Myconnection.Close()
+            Myconnection.Open()
+            Dim at, task As String
+            at = Now
+            task = "Special savings withdrawal for  " & txtsearch.Text
+
+
+            Dim sql As String
+
+
+
+            sql = "insert into logs (fullname,Task,activity_time)" _
+                    & "VALUES(@fullname,@task,@activitytime)"
+
+            Dim cmdx As New MySqlCommand(sql, Myconnection)
+            cmdx.Parameters.AddWithValue("@fullname", label2.Text)
+            cmdx.Parameters.AddWithValue("@task", task)
+            cmdx.Parameters.AddWithValue("@activitytime", at)
+
+            cmdx.ExecuteNonQuery()
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+    End Sub
+
+    Private Sub ITalk_Button_27_Click(sender As System.Object, e As System.EventArgs) Handles ITalk_Button_27.Click
+        If Val(txtsps.Text) < (txtw.Text) Then
+            MsgBox("Sorry you cannot withdraw this amount because it exceeds your special savings ", vbInformation
+                   )
+
+        ElseIf txtw.Text = "" Then
+            MsgBox("Please enter a amount to be withdrawn", vbInformation)
+
+        Else
+
+            Try
+                Myconnection.Close()
+                Myconnection.Open()
+                Dim at, task As String
+                at = Now
+                task = "Changed Savings amount for " & txtsearch.Text
+
+
+                Dim sql As String
+
+                Dim t As String = "-" & txtw.Text
+
+
+
+                sql = "insert into special (fullname,ippsno,amount)" _
+                        & "VALUES(@fullname,@ippsno,@amount)"
+
+                Dim cmdx As New MySqlCommand(sql, Myconnection)
+                cmdx.Parameters.AddWithValue("@fullname", fname)
+                cmdx.Parameters.AddWithValue("@ippsno", txtsearch.Text)
+                cmdx.Parameters.AddWithValue("@amount", t)
+
+                cmdx.ExecuteNonQuery()
+
+                MsgBox("Transaction Successfull", vbInformation)
+
+                txtw.Text = ""
+                txtsps.Text = ""
+                logspw()
+
+
+                Myconnection.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Myconnection.Close()
+            End Try
+
+
+
 
         End If
     End Sub

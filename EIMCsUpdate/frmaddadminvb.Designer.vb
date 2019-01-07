@@ -42,6 +42,9 @@ Partial Class frmaddadminvb
         Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtfname = New EIMCsUpdate.iTalk.iTalk_TextBox_Small()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,7 +74,7 @@ Partial Class frmaddadminvb
         'txtpass
         '
         Me.txtpass.BackColor = System.Drawing.Color.Transparent
-        Me.txtpass.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpass.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpass.ForeColor = System.Drawing.Color.Black
         Me.txtpass.Location = New System.Drawing.Point(237, 286)
         Me.txtpass.MaxLength = 32767
@@ -86,7 +89,7 @@ Partial Class frmaddadminvb
         'txtid
         '
         Me.txtid.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtid.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtid.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtid.ForeColor = System.Drawing.Color.Black
         Me.txtid.Location = New System.Drawing.Point(238, 214)
         Me.txtid.MaxLength = 32767
@@ -103,16 +106,17 @@ Partial Class frmaddadminvb
         Me.Labelx.BackColor = System.Drawing.Color.White
         Me.Labelx.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Labelx.ForeColor = System.Drawing.Color.Black
-        Me.Labelx.Location = New System.Drawing.Point(234, 255)
+        Me.Labelx.Location = New System.Drawing.Point(42, 189)
         Me.Labelx.Name = "Labelx"
         Me.Labelx.Size = New System.Drawing.Size(160, 21)
         Me.Labelx.TabIndex = 156
         Me.Labelx.Text = "Old Password :"
+        Me.Labelx.Visible = False
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(231, 189)
         Me.Label1.Name = "Label1"
@@ -123,7 +127,7 @@ Partial Class frmaddadminvb
         'txtnpassword
         '
         Me.txtnpassword.BackColor = System.Drawing.Color.Transparent
-        Me.txtnpassword.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtnpassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtnpassword.ForeColor = System.Drawing.Color.Black
         Me.txtnpassword.Location = New System.Drawing.Point(236, 372)
         Me.txtnpassword.MaxLength = 32767
@@ -138,7 +142,7 @@ Partial Class frmaddadminvb
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(233, 341)
         Me.Label3.Name = "Label3"
@@ -161,7 +165,7 @@ Partial Class frmaddadminvb
         'ITalk_Button_21
         '
         Me.ITalk_Button_21.BackColor = System.Drawing.Color.White
-        Me.ITalk_Button_21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ITalk_Button_21.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ITalk_Button_21.ForeColor = System.Drawing.Color.White
         Me.ITalk_Button_21.Image = Nothing
         Me.ITalk_Button_21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -175,11 +179,11 @@ Partial Class frmaddadminvb
         'ITalk_Button_22
         '
         Me.ITalk_Button_22.BackColor = System.Drawing.Color.White
-        Me.ITalk_Button_22.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ITalk_Button_22.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ITalk_Button_22.ForeColor = System.Drawing.Color.White
         Me.ITalk_Button_22.Image = Nothing
         Me.ITalk_Button_22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ITalk_Button_22.Location = New System.Drawing.Point(727, 453)
+        Me.ITalk_Button_22.Location = New System.Drawing.Point(728, 453)
         Me.ITalk_Button_22.Name = "ITalk_Button_22"
         Me.ITalk_Button_22.Size = New System.Drawing.Size(351, 46)
         Me.ITalk_Button_22.TabIndex = 221
@@ -189,9 +193,9 @@ Partial Class frmaddadminvb
         'txtcpassword
         '
         Me.txtcpassword.BackColor = System.Drawing.Color.Transparent
-        Me.txtcpassword.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcpassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcpassword.ForeColor = System.Drawing.Color.Black
-        Me.txtcpassword.Location = New System.Drawing.Point(726, 372)
+        Me.txtcpassword.Location = New System.Drawing.Point(726, 407)
         Me.txtcpassword.MaxLength = 32767
         Me.txtcpassword.Multiline = False
         Me.txtcpassword.Name = "txtcpassword"
@@ -204,9 +208,9 @@ Partial Class frmaddadminvb
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(723, 341)
+        Me.Label4.Location = New System.Drawing.Point(723, 376)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(160, 21)
         Me.Label4.TabIndex = 219
@@ -215,9 +219,9 @@ Partial Class frmaddadminvb
         'txtpassword
         '
         Me.txtpassword.BackColor = System.Drawing.Color.Transparent
-        Me.txtpassword.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpassword.ForeColor = System.Drawing.Color.Black
-        Me.txtpassword.Location = New System.Drawing.Point(727, 286)
+        Me.txtpassword.Location = New System.Drawing.Point(726, 341)
         Me.txtpassword.MaxLength = 32767
         Me.txtpassword.Multiline = False
         Me.txtpassword.Name = "txtpassword"
@@ -230,9 +234,9 @@ Partial Class frmaddadminvb
         'txtusername
         '
         Me.txtusername.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtusername.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtusername.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtusername.ForeColor = System.Drawing.Color.Black
-        Me.txtusername.Location = New System.Drawing.Point(728, 214)
+        Me.txtusername.Location = New System.Drawing.Point(726, 276)
         Me.txtusername.MaxLength = 32767
         Me.txtusername.Multiline = False
         Me.txtusername.Name = "txtusername"
@@ -245,9 +249,9 @@ Partial Class frmaddadminvb
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.White
-        Me.Label5.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(724, 255)
+        Me.Label5.Location = New System.Drawing.Point(723, 310)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(160, 21)
         Me.Label5.TabIndex = 216
@@ -256,9 +260,9 @@ Partial Class frmaddadminvb
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(721, 189)
+        Me.Label6.Location = New System.Drawing.Point(719, 251)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(160, 21)
         Me.Label6.TabIndex = 215
@@ -298,11 +302,51 @@ Partial Class frmaddadminvb
         Me.Label2.Text = "Label7"
         Me.Label2.Visible = False
         '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.White
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(245, 262)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(160, 21)
+        Me.Label7.TabIndex = 225
+        Me.Label7.Text = "Old Password :"
+        '
+        'txtfname
+        '
+        Me.txtfname.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtfname.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtfname.ForeColor = System.Drawing.Color.Black
+        Me.txtfname.Location = New System.Drawing.Point(729, 214)
+        Me.txtfname.MaxLength = 32767
+        Me.txtfname.Multiline = False
+        Me.txtfname.Name = "txtfname"
+        Me.txtfname.ReadOnly = False
+        Me.txtfname.Size = New System.Drawing.Size(350, 31)
+        Me.txtfname.TabIndex = 227
+        Me.txtfname.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtfname.UseSystemPasswordChar = False
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.White
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Black
+        Me.Label8.Location = New System.Drawing.Point(722, 189)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(160, 21)
+        Me.Label8.TabIndex = 226
+        Me.Label8.Text = "Fullname :"
+        '
         'frmaddadminvb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 645)
+        Me.Controls.Add(Me.txtfname)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BunifuCustomLabel3)
         Me.Controls.Add(Me.BunifuCustomLabel2)
@@ -351,4 +395,7 @@ Partial Class frmaddadminvb
     Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents txtfname As EIMCsUpdate.iTalk.iTalk_TextBox_Small
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class
