@@ -1,5 +1,5 @@
 # LOAN MANAGMENT SYSTEM
-Personal
+
 The software is a Loan Managment system.The Loan Management System (LMS) is an innovative, turn-key, end-to-end securities-based lending platform that connects lenders seeking high-quality, collateralized loans with borrowers requiring convenient access to credit.
  This software was developed using Micrioft VB.net and MySQL.
  
